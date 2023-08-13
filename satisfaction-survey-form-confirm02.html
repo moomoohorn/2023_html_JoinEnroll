@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/Content/images/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" type="image/png" href="/Content/images/android-touch-icon.png" sizes="192x192" />
+<meta charset="utf-8" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="”Pragma”" content="”no-cache”" />
+<title>Enroll</title>
+<link rel="stylesheet" href="Content/css/normalize.css?v=20230208124941">
+<link rel="stylesheet" href="Content/css/style.css?v=20230208124941">
+
+
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/Scripts/common.js?v=20230208124941">
+
+<script>
+    function showToastWatchman() {
+
+        location.href = document.getElementById('hdnJoinUrl').value;
+
+    }
+
+</script>
+
+<script>
+$(function(){
+    $('.js-modal-open').each(function(){
+        $(this).on('click',function(){
+            var target = $(this).data('target');
+            var modal = document.getElementById(target);
+            $(modal).fadeIn();
+            return false;
+        });
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    }); 
+});
+</script>  
+
+<style>
+td {
+    text-align: center;
+    vertical-align: top;
+    padding-bottom:5px;
+    vertical-align:middle;
+}
+</style>
+</head>
+<body class="body_bg2">
+<header id="head">
+	<h1><img src="Content/images/logo.png" width="120" height="27" alt="ロゴ：Enroll" onclick="confirmBack();" style="cursor:pointer;" /></h1>
+     <nav class="header_cnav">
+    	<ul>
+            <li class="notice"><a href="information.aspx">お知らせ</a>
+                
+            </li>
+            <li class="logout"><a href="index.aspx">
+                
+                ログアウト
+                               </a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+	<section>
+    <div class="seconday_content">
+<form method="post" action="./watchman-confirm" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="yYemOH9LgJeMkyibJDXBMAKhojs5ypf0pyKnfS0q5CrS1Fl1CRYvc8Z86d4vbJG11hvjkT4vHS28TDBx4VobZO3FUh+8ZOI/IvrhtJgc0G5ESu97sEZPaLCuviGxE12+Etmkg6qGltv/HP5gAx+w02uapDdjW7otQ12QH8LvugmP6NWl0DPY0d1O9ffTiU1ky/8QaaVZXVOKTPPD25hf7y2hrfNP1wl1uGQVfwLEUPGJeLfgJnwhh8QewN/Yn/f06Y0sx9Ra6JnZGeBDuupMyP1Y7poa05KNUcJRaeXW4V9mL2/4IViu8KUB089Fj/pyhS6hJQi1vlBa9Q0FQAgvAL9oO2Qp4H0GkrllW1TjhCd3hZqrmWrlsh6YOaVwJhwlsFN42Mp2nftMWCA6eB+oCGS7eWSn6Yo3r3Di7ESYnF9+C4L2t0EbAMyotoztfWE/hmquBxqNU/n+IyaPntJR1Wc41aJg5PP3Z/irjyhipbaqyYxCNp12V+5D/kjQ/Q6JD1BzswAEVYEh2823wDM5B6ZE3NemY1XjTMC/Qwi9UdgEkhlb2xDFMSOQ+XSMfnOL3vatowXiDEYKe3ddlLzBvMpIBpuvRsNZwZ3EnXEi3pk941RlBGUUo4B/vztvVHhmjLmMvUZEDE7UWkhXEPYqbbyTnL+C7jwYdPKji6p1amp1ZuYTvbHCX7TOXFjybQ5/0rb8rshY9pcySV5UDXq8wfdkWjuocbKCbuynpJXrL/+RQOOukX+jUuFPvSwbJ6x4" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="ED08228A" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="d1yp8M0tMlC6rn6ns9zVwAOrUugCYKzkrRHuACwO3wR2GGsqaYL7ycuuIwRlUGicvrIlFNOA61iTM5d/epU2CtzSSfqcwmfMZI7YGHezZEktnGFRipM4wtNMG17LNTbFjT4RfbLKo7+39Nwtdao+dfODSyd0naxmxAO5W+nq9Oyg/TaSVDdbje2hfgn7z3l8" />
+</div>
+    
+    	<div class="check_list_area">
+            <h2>医療従事者への満足度調査（第二段階）| 治療・転帰について</h2>
+
+             <div class="bg_blue">
+             	<h3>1.コンサルテーション介入症例の治療・転帰について教えてください</h3> 
+                    	<dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>コンサルテーション後の治療について教えてください</dt>
+                                <dd>
+                                	<p><span id="1_Q1_01">手術</span></p>
+                                	<p><span id="1_Q1_02">実施日:2022年12月10日</span></p>
+                                    <span class="line2"></span>
+                                    <p><span id="1_Q1_03">化学療法</span></p>
+                                	<p><span id="1_Q1_04">実施機関:2022年11月1日～2022年11月4日</span></p>
+                                    <p><span id="1_Q1_05">ＰＲ</span></p>
+                                    <p><span id="1_Q1_06">2クール実施</span></p>
+                                    <span class="line2"></span>
+                                    <p><span id="1_Q1_07">放射線療法</span></p>
+                                	<p><span id="1_Q1_08">実施日:2022年11月1日～2022年11月4日</span></p>
+                                </dd>
+                            </div> 
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                      <div class="bg_white"> 
+                      <h3>2）コンサルテーション介入後の転帰に関して教えてください。</h3> 
+                    	<dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>1) 改善状態について教えてください</dt>
+                                <dd>
+                                	<p><span id="2_Q1_01">生存</span></p>
+                                	<p><span id="2_Q1_02">最終生存確認日:2023年4月28日</span></p>
+                                </dd>
+                            </div> 
+                        </dl>
+                     </div><!--bg_white end-->
+            
+                	<div class="bg_blue"> 
+						<dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>2) 死因</dt>
+                                <dd>
+                                	<p><span id="2_Q2_01">原病増悪による死亡</span></p>
+                                </dd>
+                             </div>
+                         </dl>
+                 </div><!--bg_blue end-->
+                 
+                  <div class="bg_white">
+                     	<div class="form_submit">
+                             <input type="submit" name="btnConfirm" value="Join に送信" onclick="return sendConfirm();" id="btnConfirm" class="btn_style js-modal-open" data-target="modal01"/>
+                             <input type="submit" name="btnReturn" value="戻る" onclick="history.back(); return false;" id="btnReturn" class="btn_style_line" />
+                             
+                        </div>
+                     </div><!--bg_white end-->
+                     
+        </div><!--check_list_area end-->
+    	
+        <input type="hidden" name="hdnJoinUrl" id="hdnJoinUrl" />
+        <input type="hidden" name="hdnJoinUrlDebug" id="hdnJoinUrlDebug" />
+        
+      </form>
+    </div><!--seconday_content end-->
+    </section>
+    
+    	<div id="modal01" class="modal js-modal">
+        <div class="modal_bg js-modal-close"></div>
+        <div class="modal_content">
+          <ul class="send_content">
+          	<li>症例の病歴、検査データ、相談内容を<span class="br">追加でJoinへ送信してください。</span><p>くれぐれも個人情報は除いてください。</p></li>
+            </ul><!--.send_content end-->
+            
+            <div class="m_btn_area">
+            <button name="send" id="send" type="button" class="btn_style3 js-modal-close" onclick="">Joinに送信する</button>
+            <button name="close" id="close" type="button" class="btn_style4 js-modal-close" onclick="">閉じる</button>
+            </div>
+            
+        </div><!--modal_content-->
+    </div><!--modal01-->
+    
+</main>
+
+<footer class="seconday_footer">
+  <small>&copy; 2020 Allm Inc. </small>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/Content/images/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" type="image/png" href="/Content/images/android-touch-icon.png" sizes="192x192" />
+<meta charset="utf-8" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="”Pragma”" content="”no-cache”" />
+<title>Enroll</title>
+<link rel="stylesheet" href="Content/css/normalize.css?v=20230208124941">
+<link rel="stylesheet" href="Content/css/style.css?v=20230208124941">
+
+
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/Scripts/common.js?v=20230208124941">
+
+<script>
+    function showToastWatchman() {
+
+        location.href = document.getElementById('hdnJoinUrl').value;
+
+    }
+
+</script>
+
+<script>
+$(function(){
+    $('.js-modal-open').each(function(){
+        $(this).on('click',function(){
+            var target = $(this).data('target');
+            var modal = document.getElementById(target);
+            $(modal).fadeIn();
+            return false;
+        });
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    }); 
+});
+</script>  
+
+<style>
+td {
+    text-align: center;
+    vertical-align: top;
+    padding-bottom:5px;
+    vertical-align:middle;
+}
+</style>
+</head>
+<body class="body_bg2">
+<header id="head">
+	<h1><img src="Content/images/logo.png" width="120" height="27" alt="ロゴ：Enroll" onclick="confirmBack();" style="cursor:pointer;" /></h1>
+     <nav class="header_cnav">
+    	<ul>
+            <li class="notice"><a href="information.aspx">お知らせ</a>
+                
+            </li>
+            <li class="logout"><a href="index.aspx">
+                
+                ログアウト
+                               </a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+	<section>
+    <div class="seconday_content">
+<form method="post" action="./watchman-confirm" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="yYemOH9LgJeMkyibJDXBMAKhojs5ypf0pyKnfS0q5CrS1Fl1CRYvc8Z86d4vbJG11hvjkT4vHS28TDBx4VobZO3FUh+8ZOI/IvrhtJgc0G5ESu97sEZPaLCuviGxE12+Etmkg6qGltv/HP5gAx+w02uapDdjW7otQ12QH8LvugmP6NWl0DPY0d1O9ffTiU1ky/8QaaVZXVOKTPPD25hf7y2hrfNP1wl1uGQVfwLEUPGJeLfgJnwhh8QewN/Yn/f06Y0sx9Ra6JnZGeBDuupMyP1Y7poa05KNUcJRaeXW4V9mL2/4IViu8KUB089Fj/pyhS6hJQi1vlBa9Q0FQAgvAL9oO2Qp4H0GkrllW1TjhCd3hZqrmWrlsh6YOaVwJhwlsFN42Mp2nftMWCA6eB+oCGS7eWSn6Yo3r3Di7ESYnF9+C4L2t0EbAMyotoztfWE/hmquBxqNU/n+IyaPntJR1Wc41aJg5PP3Z/irjyhipbaqyYxCNp12V+5D/kjQ/Q6JD1BzswAEVYEh2823wDM5B6ZE3NemY1XjTMC/Qwi9UdgEkhlb2xDFMSOQ+XSMfnOL3vatowXiDEYKe3ddlLzBvMpIBpuvRsNZwZ3EnXEi3pk941RlBGUUo4B/vztvVHhmjLmMvUZEDE7UWkhXEPYqbbyTnL+C7jwYdPKji6p1amp1ZuYTvbHCX7TOXFjybQ5/0rb8rshY9pcySV5UDXq8wfdkWjuocbKCbuynpJXrL/+RQOOukX+jUuFPvSwbJ6x4" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="ED08228A" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="d1yp8M0tMlC6rn6ns9zVwAOrUugCYKzkrRHuACwO3wR2GGsqaYL7ycuuIwRlUGicvrIlFNOA61iTM5d/epU2CtzSSfqcwmfMZI7YGHezZEktnGFRipM4wtNMG17LNTbFjT4RfbLKo7+39Nwtdao+dfODSyd0naxmxAO5W+nq9Oyg/TaSVDdbje2hfgn7z3l8" />
+</div>
+    
+    	<div class="check_list_area">
+            <h2>医療従事者への満足度調査（第二段階）(確認画面)</h2>
+
+             <div class="bg_blue">
+             	<h3>１.オンラインコンサルテーション介入前の治療状況について教えてください。</h3> 
+                    	<dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>1）介入前の治療内容（該当するすべての項目を選択後、自由記載欄に詳細をご記載ください。<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="1_Q1_01">術後化学療法後</span></p>
+                                    <span class="line2"></span>
+                                	<p><span id="1_Q1_02">自由記載</span></p>
+                                </dd>
+                            </div> 
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                      <div class="bg_white"> 
+                    	<dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>2) 治療の効果はどうでしたか？<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="1_Q2_01">SD</span></p>
+                                	<p><span id="1_Q2_02">補足説明</span></p>
+                                </dd>
+                            </div> 
+                        </dl>
+                     </div><!--bg_white end-->
+            
+                	<div class="bg_blue"> 
+						<dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>3) どんな副作用がありましたか？<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="1_Q3_01">食思不振: Grade 1</span></p>
+                                    <p><span id="1_Q3_02">倦怠感: Grade 2</span></p>
+                                    <p><span id="1_Q3_03">白血球減少: Grade 3</span></p>
+                                </dd>
+                             </div>
+                         </dl>
+                 </div><!--bg_blue end-->
+                 
+                 <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>4）当院（国立がん研究センター中央病院）から提案された内容を貴院で採用されましたか？<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="1_Q4_01">完全に採用</span></p>
+                                    <span class="line"></span>
+                                    <p><span id="1_Q4_02">自由記載</span></p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_white end-->
+                        
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>5）治療内容の変更があった場合、どのような治療方針になりましたか？</dt>
+                                <dd>
+                                	<p><span id="1_Q5_01">自由記載</span></p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_blue end--> 
+                         
+                <div class="bg_white">
+                	<h3>2.オンラインコンサルテーションのフロー・システムについて、教えてください。</h3> 
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>1）今回のオンラインコンサルテーションの満足度について教えてください。<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="2_Q1_01">まあまあよかった</span></p>
+                                    <span class="line"></span>
+                                    <p><span id="2_Q1_02">自由記載</span></p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_white end--> 
+                        
+                    <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>2）システムで、使いやすかった点を教えてください。<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="2_Q2_01">チャット機能</span></p>
+                                    <span class="line2"></span>
+                                    <p><span id="2_Q2_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                    <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>3）システムで、改善してほしい点を教えてください。<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="2_Q3_01">症例登録フォーム</span></p>
+                                    <span class="line"></span>
+                                    <p><span id="2_Q3_02">自由記載</span></p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_white end--> 
+                        
+                    <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>4）1症例相談するのに、どのくらいの時間がかかりましたか？<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="2_Q4_01">5分～10分程度</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                     <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>5）通常のセカンドオピニオンのための紹介準備と比較して、どのくらい時間に差がありましたか？<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="2_Q5_01">かなり早くなった</span></p>
+                                    <span class="line"></span>
+                                	<p><span id="2_Q5_02">自由記載</span></p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_white end--> 
+                        
+                    <div class="bg_blue"> 
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>6）通常のセカンドオピニオンの流れと違って、よいと思ったところはどこですか？<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="2_Q6_01">相談内容を直接確認できる</span></p>
+                                    <span class="line2"></span>
+                                	<p><span id="2_Q6_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_blue end--> 
+                     
+                    <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>7）通常のセカンドオピニオンの流れと違って、手間がかかったところはどこですか？<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="2_Q7_01">症例登録フォームの入力</span></p>
+                                    <span class="line"></span>
+                                	<p><span id="2_Q7_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                    <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>8）通常のセカンドオピニオンの紹介と比較して、一番価値を感じたのはどこですか？<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="2_Q8_01">セキュリティの安全性</span></p>
+                                    <span class="line2"></span>
+                                	<p><span id="2_Q8_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                   <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>9）コンサルテーション結果を受けとるまでの期間はいかがでしたか？<span class="red">※</span></dt>
+                                 <dd>
+                                    <p><span id="2_Q9_01">想像よりも早かった</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                    <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>10）上記で、もう少し早く結果を受け取りたいと回答した方は、理由を教えてください。<span class="red">※</span></dt>
+                                <dd>
+                                    <p><span id="2_Q10_01">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                  <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>11）今まで、症例相談はどのようなツールを使用して行っていましたか？<span class="red">※</span></dt>
+                                 <dd>
+                                    <p><span id="2_Q11_01">メール</span></p>
+                                    <span class="line"></span>
+                                	<p><span id="2_Q11_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                    <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>12）上記で回答した方法で、どのくらいの頻度で相談をしていましたか？<span class="red">※</span></dt>
+                                <dd>
+                                    <p><span id="2_Q12_01">月に1回程度</span></p>
+                                    <span class="line2"></span>
+                                	<p><span id="2_Q12_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                  <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>13）今までの症例相談の方法から、今回のオンラインコンサルテーションシステムツール（Join・症例登録フォーム）へ変更したいと思いますか？<span class="red">※</span></dt>
+                                 <dd>
+                                    <p><span id="2_Q13_01">とても思う</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                    <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>14）研究終了後も今回のシステムが利用できるとしたら、どのような状況でシステムを利用したいですか？<span class="red">※</span></dt>
+                                <dd>
+                                    <p><span id="2_Q14_01">疾患を限定した上で、積極的に利用したい</span></p>
+                                    <span class="line2"></span>
+                                	<p><span id="2_Q14_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                  <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>15）研究終了後も今回のシステムが有料となった場合、継続的・定期的に利用したいと思いますか？<span class="red">※</span></dt>
+                                 <dd>
+                                    <p><span id="2_Q15_01">思う</span></p>
+                                    <span class="line"></span>
+                                	<p><span id="2_Q15_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                     <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>16）有料となった場合、どういった料金体系であれば利用したいと思いますか？<span class="red">※</span></dt>
+                                <dd>
+                                    <p><span id="2_Q16_01">1回につき、数百円のスポット利用</span></p>
+                                    <span class="line2"></span>
+                                	<p><span id="2_Q16_02">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_blue end-->
+                     
+                  <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>17）オンラインコンサルテーションシステムに関するご意見・ご要望がありましたら、ご記載ください。</dt>
+                                 <dd>
+                                    <p><span id="2_Q17_01">自由記載</span></p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                  <div class="bg_white">
+                     	<div class="form_submit">
+                             <input type="submit" name="btnConfirm" value="Join に送信" onclick="return sendConfirm();" id="btnConfirm" class="btn_style js-modal-open" data-target="modal01"/>
+                             <input type="submit" name="btnReturn" value="戻る" onclick="history.back(); return false;" id="btnReturn" class="btn_style_line" />
+                             
+                        </div>
+                     </div><!--bg_white end-->
+                     
+        </div><!--check_list_area end-->
+    	
+        <input type="hidden" name="hdnJoinUrl" id="hdnJoinUrl" />
+        <input type="hidden" name="hdnJoinUrlDebug" id="hdnJoinUrlDebug" />
+        
+      </form>
+    </div><!--seconday_content end-->
+    </section>
+    
+    	<div id="modal01" class="modal js-modal">
+        <div class="modal_bg js-modal-close"></div>
+        <div class="modal_content">
+          <ul class="send_content">
+          	<li>症例の病歴、検査データ、相談内容を<span class="br">追加でJoinへ送信してください。</span><p>くれぐれも個人情報は除いてください。</p></li>
+            </ul><!--.send_content end-->
+            
+            <div class="m_btn_area">
+            <button name="send" id="send" type="button" class="btn_style3 js-modal-close" onclick="">Joinに送信する</button>
+            <button name="close" id="close" type="button" class="btn_style4 js-modal-close" onclick="">閉じる</button>
+            </div>
+            
+        </div><!--modal_content-->
+    </div><!--modal01-->
+    
+</main>
+
+<footer class="seconday_footer">
+  <small>&copy; 2020 Allm Inc. </small>
+</footer>
+
+</body>
+</html>

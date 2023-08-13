@@ -1,0 +1,618 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/Content/images/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" type="image/png" href="/Content/images/android-touch-icon.png" sizes="192x192" />
+<meta charset="utf-8" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="”Pragma”" content="”no-cache”" />
+<title>Enroll</title>
+  <link rel="stylesheet" href="Content/css/normalize.css?v=20230519045503">
+<link rel="stylesheet" href="Content/css/style.css?v=20230519045503">
+
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" /><script src="/Scripts/common.js?v=20201221122507"></script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/Scripts/common.js?v=20210608024511"></script>
+
+<script>
+
+    $(function () {
+        $('.js-menu_item_link').each(function () {
+            $(this).on('click', function () {
+                $(this).toggleClass('on');
+                $("+.accordion_submenu", this).slideToggle()
+                return false;
+            });
+        });
+    });
+
+    function sliceMaxLength(elem, maxLength) {
+        elem.value = elem.value.slice(0, maxLength);
+    }
+
+
+</script>
+<script>
+    function checkMaxValueFloat(elem, maxValue) {
+
+        if (elem.value != '') {
+            if (parseFloat(elem.value) > parseFloat(maxValue)) {
+                elem.value = maxValue;
+            }
+            else if (elem.value.substr(0, 1) == '-') {
+                elem.value = 0;
+            }
+        }
+    }
+    function checkMaxValueInt(elem, maxValue) {
+
+        if (elem.value != '') {
+            if (parseInt(elem.value) > parseInt(maxValue)) {
+                elem.value = maxValue;
+            }
+            else if (elem.value.substr(0, 1) == '-') {
+                elem.value = 0;
+            }
+        }
+    }
+</script>
+<script>
+    $(function () {
+        $('.js-modal-open').each(function () {
+            $(this).on('click', function () {
+                var target = $(this).data('target');
+                var modal = document.getElementById(target);
+                $(modal).fadeIn();
+                return false;
+            });
+        });
+        $('.js-modal-close').on('click', function () {
+            $('.js-modal').fadeOut();
+            return false;
+        });
+        $(document).ready(function () {
+            // 確認画面からブラウザバッグした時に入力チェックエラーを消す
+            if (window.performance.navigation.type == 2) {
+                checkRequiredQ1();
+            }
+        });
+    });
+</script>
+
+
+<!--<script>
+
+    // ラジオボタンのチェック解除用
+    var number;
+    $(function(){
+        number = $('input:checked').val();
+        $('input').click(function(){
+            if($(this).val() == number) {
+                $(this).prop('checked', false);
+                number = 0;
+            } else {
+                number = $(this).val();
+            }
+        checkRequired();
+        });
+    });
+
+    let errorIcon = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i>';
+
+    function checkRequired() {
+        checkRequiredQ1();
+    }
+
+    function checkRequiredQ1() {
+
+        /*if ($("#Q1").val() != '') {
+            $("#p_errQ1_01").text('　');
+        } else {
+            $("#p_errQ1_01").html(errorIcon + '入力してください');
+        }*/
+
+        if ($("#Q2").val() != '') {
+            $("#p_errQ1_02").text('　');
+        } else {
+            $("#p_errQ1_02").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q3]:checked").val()) {
+            $("#p_errQ1_03").text('　');
+        } else {
+            $("#p_errQ1_03").html(errorIcon + '入力してください');
+        }
+
+        if ($("#left_ABI").val() != '') {
+            $("#p_errQ1_04").text('　');
+        } else {
+            $("#p_errQ1_04").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q5]:checked").val()) {
+            $("#p_errQ1_05").text('　');
+        } else {
+            $("#p_errQ1_05").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q6]:checked").val()) {
+            $("#p_errQ1_06").text('　');
+        } else {
+            $("#p_errQ1_06").html(errorIcon + '下記事項を確認し、チェックしてください');
+        }
+
+        if ($("input[type=radio][name=Q7]:checked").val()) {
+            $("#p_errQ1_07").text('　');
+        } else {
+            $("#p_errQ1_07").html(errorIcon + '入力してください');
+        }
+
+        /*if ($("input[type=radio][name=Q8]:checked").val()) {
+            $("#p_errQ1_08").text('　');
+        } else {
+            $("#p_errQ1_08").html(errorIcon + '入力してください');
+        }*/
+
+        /*if ($("input[type=radio][name=Q9]:checked").val()) {
+            $("#p_errQ1_09").text('　');
+        } else {
+            $("#p_errQ1_09").html(errorIcon + '入力してください');
+        }*/
+
+        if ($("input[type=radio][name=Q10]:checked").val()) {
+            $("#p_errQ1_10").text('　');
+        } else {
+            $("#p_errQ1_10").html(errorIcon + '入力してください');
+        }
+
+        /*if ($("input[type=radio][name=Q11]:checked").val()) {
+            $("#p_errQ1_11").text('　');
+        } else {
+            $("#p_errQ1_11").html(errorIcon + '入力してください');
+        }*/
+
+        /*if ($("input[type=radio][name=Q12]:checked").val()) {
+            $("#p_errQ1_12").text('　');
+        } else {
+            $("#p_errQ1_12").html(errorIcon + '入力してください');
+        }*/
+    }
+
+    function checkConfirm() {
+
+        checkRequired();
+
+        if ($("#p_errQ1_02").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_02").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_03").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_03").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_04").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_04").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_05").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_05").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_06").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_06").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_07").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_07").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_10").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_10").offset().top - 50 });
+            return false;
+        }
+
+        return true;
+    }
+
+</script>-->
+
+<style>
+td {
+    text-align: center;
+    vertical-align: top;
+    padding-bottom:5px;
+    vertical-align:middle;
+}
+</style>
+</head>
+<body class="body_bg2">
+<header id="head">
+    <h1><img src="/Content/images/logo.png" width="120" height="27" alt="ロゴ：Enroll" onclick="confirmBack();" style="cursor:pointer;" /></h1>
+    <nav class="header_cnav">
+        <ul>
+            <li class="notice"><a href="information.aspx">お知らせ</a>
+                <span class="notice_number">3</span>
+            </li>
+            <li class="logout">
+                <a href="index.aspx">
+                    
+                    ログアウト
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main id="bodymain">
+<form method="post" action="./case-registration-form-check-list" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="RbpXnWICENv84QbdTgDzqbVNxyftj75B3cMZRbneZM0Bh55MQVE3K/LmzlsjVjmxu2+/DdC7zZiFXRccZDvrstp+Hu1q0GFmP1ysPgjRQ0QS6BTNoNtR+catHUlOpbbzIhajPqajqA/6eeRwILgfnrVuKKtTgNMx3pGe0LQVHLkxuTGMjyvwD4oHCeGt+BNcaUwKIpkHETJ2r2mTDnt2WLKV7ruvJn25DDi3Q7nUxMq+1RmXwYJ+cMfIz2jGRH+gmebpJPZRYuicVstCq7ciyZ+xg4L5mweGBYvGJnRuuKM/SNWrNNjdc+3OLaQLU25LwWFC5mCXGMQx0lanTFX7jxaAtvR14rRyIeS7EQIUM6TWD8t+ljmCHxunHYrfB8ZMsFYRUycHxdUWRhB3YxGB6xKZIT5d15Dm+zn2qJRk7eWkUkhkCu3iwE0iz5a+8knkHeEq1v5ZkSoxEIYBVJG1Un0QoC1elroUIr+yi9VZ89Gpc5I8amrHsWJELOEIXv24z+stPOI+4S7kwfC8Y485+SNRHoz986hrkCFnNy0t1T40NdU5cJ8yvLSXdRXhIOO75ITESUhBihwBuy3oVDTqbcXZj5OY/GVydNY0BlQFakcQgyEIqTv4L0CbYEzQX4lZ1NxfM8s4Ke2ksnmmnlhRXG0iueuee2YuW3XLNQeMn78fedKi6b6dYtHeCL86rqvtN+o41DHLy7Ni+VwAK/UmhP80RXwz5Hn8zSoePiXnJxpeZe9QcEA+RVoKHb+1zloKgn/33gbD1yV3/Bn/ivy3mV3FSbAJgNk4fdK0OP81ae8hrMQe1Us0t0lIM0XkIfSNDWJQjxL1cT4lBCSNk9xD2Jrii4HN64MEww7hnEvUZFpAe4QUyTMSqc5o53kwggoDPjcLjjnyvXcxW7wuAD8sE6CwFy83JnKVMRzFMzpzv7In4zgvMZ5Ty6pecKctFm9jo842sIfxr6PdzikHQj5uBeb7Te5f6H3AZ/EVMTrmXwOkA36TDYaRI+sPR9M4th541grinwM60Fnptw1k+VOnNz5F9a+J3ExYmPEmbCxPtqE=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="173B3489" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/xsl1kdwHDZTUkgugv7IXVQhZS4UwEtNYxdNi4serVEpLH+CuOLpqvtgZuubfgavG0yMQzuhnqNZ8LPDF9O1F1xFo/wk8ID8y0M21x6ImUn9PNbG26yT8RG7LwdzeyT3gV6QpAErfwSZFE4GbVMw2+taSzlJRUGMRjlb6XJ69M2xyuad4n9Te1h9Zr1DKUZRzhhBrkIVzG+e8Fg0bHnMxXcgLIx80TIUHc7fjQh6iGhRkZDlVFRYPArrQLfk02msG/S6F8nF5zqg41yWyc3O2M6gzjNZIBN1pu4tZ2/MtqhJ/FrSRf8QbNHYhFOjCspCb+1WesR5c0Cj5qechHv1LQrHT5W3XriFCNaKQyfNIoRo/bum9LnELwd0ScH4cNHyUp06mFNOcN6g9AQE/bb4K76Dqn5h8jRxUs5QEKu+oAikrY/FTWkO+NE0Y9QS+H4XBDancIELjxIrVUgwRY6PtH+90ZvT1FGvzSLAi5Y2LLZk0OHPr8k+lXM5Ddv9q8pem46BfvaaPwXHOS7etHYQ1ldGqdWCVfaRG92uz33LJmA36FWY4yVWG00EHx9Y5I1r47SaSVFWFR5vEklQnVd3yEGosU/afALmqOtD1+k5NXzj5GxCIFTacZFovYWylUBxQU5CU4Fpv2n/GiYermbOpdSclxsOX49lC0QrwIVFB1KbgeGMcTlsCM3dawuFdnK1AnHpRD2k1bcjKICiiT1en6xdsrKSx0w4sJdCkVE0nHNS+QFfogaMRzGrKcysBjOMdWN7PqFHUVM7iekaSf40C3BCwSOA6lDINOC/tNlXBRlAFQgJKXEXSbazmVF8nly28JBZSkczjVVW41efVyj1pCUhkyKqntwNcviRPQEyrOkKH5n6Q1Ep8oEE5MGwNg7fy2bcHyxsWsFlHbxQVykOIHInDAsZ1LnC/SxtW/LkmvisX2VqmCLhNWdmcnywTpaARF1sNRqiXVfVK5ssIhWfFM2/kWLav95o/tMukFUMN/dgEVA1jK0kLG4JeyunLbhXtwBu/jJsA9sn9jjQ14/yb+PRW4vzo5AwjZDnqtpdheOfjnkPVmIrIBP/kOvGxBX94guqnqKao+zzYcU3w4CrVqQrD1NCZ8UfLUq+D1NAx8jTFCfVspizbqXzN4YAzE9q8AesDaWzVLUOhxyo6z57U75tzqv7TuJWfn+G5J29RpSr/yDbcmedu229cacH2CYXxFisYmlX7BT0rMZksC+8mRBGxyCP5j7QTvSMm60u+nPpfoz46Yw/y19s8SpzWdbNV2dtF89D4XiJ5/Tn48mmRANZfCM7jFYsldget+vD5vJ/jKceKip1Hp3upbjhhppcKuxTDfkUqexmJeCSDFWDoHVj1ybtXdzOOeVYQpguUeRVo2Bx9GELnS3/DovbI6cpC394PB87XDgnIx0l8tsSTIVatoa1HyNyckQ77Wvk6IoriaSYxepFsYgdp3Vx9YOwH5IQkUVDbwN9WvdpT66GYUyYgA9MU3Yve+Zc29FLL6VnG262bKSovsp00IvuDF9LulI9Uhtwg8fTwtvHMQSS8I43CqR6AIhi43hQ/A4LooqKAXqE/fqC4r4tkLV3QI4N" />
+</div>
+    <input type="hidden" name="mode" id="mode" value="SP" />
+    <section>
+    <div class="seconday_content">
+
+        <div class="check_list_area">
+            <h2>医療従事者・がん患者を対象とした継続的なオンラインコンサルテーションシステムの構築に関する実証化研究CONNECT-Oncolpgy　医療従事者への満足度調査</h2>
+            
+            	<div class="note">この医療従事者への満足度調査は、「医療従事者を対象とした継続的なオンラインコンサルテーションシステム構築の実証研究」の情報収集を適切に行う事を目的として、<span class="font_adjustment6">コンサルテーション後1週間～2か月以内に回答いただくアンケート調査です。</span><br>こちらの回答で得た情報は、研究以外に利用されることはなく、回答した内容によって今後、回答者や相談いただいた症例の方に何か不利益になることはありません。
+研究の精度を上げるべく、なるべく多くの項目に回答の協力をいただけますよう何卒ご協力のほど、よろしくお願い申し上げます。
+
+                    <dl class="note_check_item">
+                        <dt>本研究への参加に同意し、症例登録フォームで症例相談を行うことに同意します。</dt>
+                        <dd>
+                        	 	<div class="error_text_area3" id="errQ0" style="display:block;">
+                                    <p class="error_text" id="p_errQ0"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input value="はい" name="Q0" type="radio" id="Q0_Y" onchange="checkRequiredQ1();" /><label for="Q0_Y">はい</label>
+                                <input value="いいえ" name="Q0" type="radio" id="Q0_N" onchange="checkRequiredQ1();" /><label for="Q0_N">いいえ</label>
+                        </dd>
+                    </dl>
+                    
+                </div><!--.note end-->
+                
+                <div class="bg_blue">
+                    <p class="info_text"><span class="red">※</span>は必須項目です。</p>
+                    <h3>1.コンサルテーション介入症例の治療・転帰について教えてください</h3>
+
+                    <dl class="from_check_list_text_field7">
+                        <div class="form_item align_adjustment2">
+                            <dt>1）コンサルテーション後の治療について教えてください。<span class="title_description">※当てはまる欄をすべて記載</span></dt>
+                            <dd>
+                            
+                            	<ul class="accordion_menu margin_adjustment16">
+                                        <li class="accordion_menu_item fw_adjustment">
+                                            <a class="accordion_menu_item_link2 js-menu_item_link" href="">手術</a>
+                                            <ul class="accordion_submenu">
+                                                <li class="accordion_submenu_item">
+                                                
+                                                	<ul class="checkbox_list_toggle">
+                                                    	<li>
+                                                            <input value="実施" name="1_Q1" type="radio" id="1_Q1_01" onchange="checkRequiredQ1();" /><label for="1_Q1_01">実施</label>
+                                                            <div class="toggle_content2">
+                                                                <dl class="from_check_list_text_field8">
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>手術日</dt>
+                                                                        <dd>
+                                                                            <input name="1_Q1" type="text" id="1_Q1_01_01" class="width_adjustment10 margin_adjustment12" maxlength="10" placeholder="2023/01/01" oninput="sliceMaxLength(this, 30)" onblur="checkRequiredQ1();" /> 
+                                                                        </dd>
+                                                                    </div>
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>詳細</dt>
+                                                                        <dd>
+                                                                                <textarea name="findings" id="findings" class="height_adjustment" maxlength="500" placeholder="詳細をご記載ください"></textarea>
+                                                                        </dd>
+                                                                    </div>
+                                                                </dl><!--from_check_list_text_field7 end-->
+                                                            </div><!--.toggle_content end-->
+                                                        </li>
+                                                        <li>
+                                                            <input value="実施" name="1_Q1" type="radio" id="1_Q1_02" onchange="checkRequiredQ1();" /><label for="1_Q1_02">未実施</label>
+                                                       </li>
+                                                    </ul><!--.checkbox_list_toggle end-->
+                                                	
+                                                    </li>
+                                                    </ul>  
+                                                 </li><!--.accordion_submenu_item end-->
+                                            </ul>
+                                        </li>
+                                    </ul><!--.accordion_menu end-->
+                            
+                                 <ul class="accordion_menu margin_adjustment16">
+                                        <li class="accordion_menu_item fw_adjustment">
+                                            <a class="accordion_menu_item_link2 js-menu_item_link" href="">化学療法</a>
+                                            <ul class="accordion_submenu">
+                                                <li class="accordion_submenu_item">
+                                                
+                                                	<ul class="checkbox_list_toggle">
+                                                    	<li>
+                                                            <input value="実施" name="1_Q2" type="radio" id="1_Q2_01" onchange="checkRequiredQ1();" /><label for="1_Q2_01">実施</label>
+                                                            <div class="toggle_content2">
+                                                                <dl class="from_check_list_text_field8">
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>実施日</dt>
+                                                                        <dd>
+                                                                             <input name="1_Q2" type="text" id="1_Q2_01_01" class="width_adjustment10 margin_adjustment12 margin_adjustment5" maxlength="10" placeholder="開始日
+" oninput="sliceMaxLength(this, 30)" onblur="checkRequiredQ1();" /> <input name="1_Q2" type="text" id="1_Q2_01_02" class="width_adjustment10 margin_adjustment12" maxlength="10" placeholder="終了日
+
+" oninput="sliceMaxLength(this, 30)" onblur="checkRequiredQ1();" /> 
+                                                                        </dd>
+                                                                    </div>
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>治療効果</dt>
+                                                                        <dd>
+                                                                             <div class="select_box_area2 width_adjustment9">
+                                                                                <select name="effect_treatment" id="effect_treatment" class="width_adjustment4 margin_adjustment14" name="effect_treatment" onchange="checkRequiredQ1();">
+                                                                                    <option value=""></option>
+                                                                                    <option value="1">CR(完全奏功)</option>
+                                                                                    <option value="2">PR(部分奏功)</option>
+                                                                                    <option value="3">SD(安定)</option>
+                                                                                    <option value="5">PD(進行)</option>
+                                                                                    <option value="6">判定不能</option>
+                                                                                </select>
+                                                                                </div>
+                                                                                <textarea name="effect_treatment_note" id="effect_treatment_note" class="height_adjustment margin_adjustment7" maxlength="500" placeholder="自由記載"></textarea>
+                                                                        </dd>
+                                                                    </div> 
+                                                                </dl><!--from_check_list_text_field7 end-->
+                                                            </div><!--.toggle_content end-->
+                                                        </li>
+                                                        <li>
+                                                            <input value="未実施" name="1_Q2" type="radio" id="1_Q2_02" onchange="checkRequiredQ1();" /><label for="1_Q2_02">未実施</label>
+                                                       </li>
+                                                       <li>
+                                                            <input value="継続中" name="1_Q2" type="radio" id="1_Q2_03" onchange="checkRequiredQ1();" /><label for="1_Q2_03">継続中</label>
+                                                            <div class="toggle_content2">
+                                                                <dl class="from_check_list_text_field8">
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>詳細</dt>
+                                                                        <dd>
+                                                                             <textarea name="effect_treatment_note" id="effect_treatment_note" class="height_adjustment" maxlength="500" placeholder="自由記載"></textarea>
+                                                                        </dd>
+                                                                    </div>
+                                                                </dl><!--from_check_list_text_field7 end-->
+                                                            </div><!--.toggle_content end-->
+                                                        </li>
+                                                        <li>
+                                                            <input value="中止" name="1_Q2" type="radio" id="1_Q2_04" onchange="checkRequiredQ1();" /><label for="1_Q2_04">中止</label>
+                                                            <div class="toggle_content2">
+                                                                <dl class="from_check_list_text_field8">
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>中止理由</dt>
+                                                                        <dd>
+                                                                            <textarea name="effect_treatment_note" id="effect_treatment_note" class="height_adjustment" maxlength="500" placeholder="中止理由をご記載ください"></textarea>
+                                                                        </dd>
+                                                                    </div>
+                                                                </dl><!--from_check_list_text_field7 end-->
+                                                            </div><!--.toggle_content end-->
+                                                        </li>
+                                                    </ul><!--.checkbox_list_toggle end-->
+                                                	
+                                                    </li>
+                                                    </ul>  
+                                                 </li><!--.accordion_submenu_item end-->
+                                            </ul>
+                                        </li>
+                                    </ul><!--.accordion_menu end-->
+                            
+                                  <ul class="accordion_menu margin_adjustment16">
+                                        <li class="accordion_menu_item fw_adjustment">
+                                            <a class="accordion_menu_item_link2 js-menu_item_link" href="">放射線療法</a>
+                                            <ul class="accordion_submenu">
+                                                <li class="accordion_submenu_item">
+                                                	<ul class="checkbox_list_toggle">
+                                                    	<li>
+                                                        	<input value="実施" name="1_Q3" type="radio" id="1_Q3_01" onchange="checkRequiredQ1();" /><label for="1_Q3_01">実施</label>
+                                                        </li>
+                                                        <li>
+                                                        	<input value="未実施" name="1_Q3" type="radio" id="1_Q3_02" onchange="checkRequiredQ1();" /><label for="1_Q3_02">未実施</label>
+                                                        </li>
+                                                        <li>
+                                                        	<input value="継続中" name="1_Q3" type="radio" id="1_Q3_03" onchange="checkRequiredQ1();" /><label for="1_Q3_03">継続中</label>
+                                                        </li>
+                                                        <li>
+                                                        	<input value="中止" name="1_Q3" type="radio" id="1_Q3_04" onchange="checkRequiredQ1();" /><label for="1_Q3_04">中止</label>
+                                                        </li>
+                                                    </ul>  
+                                                 </li><!--.accordion_submenu_item end-->
+                                            </ul>
+                                        </li>
+                                    </ul><!--.accordion_menu end-->
+                                    
+                                    <ul class="accordion_menu margin_adjustment16">
+                                        <li class="accordion_menu_item fw_adjustment">
+                                            <a class="accordion_menu_item_link2 js-menu_item_link" href="">遺伝子パネル検査</a>
+                                            <ul class="accordion_submenu">
+                                                <li class="accordion_submenu_item">
+                                                	<ul class="checkbox_list_toggle">
+                                                    	<li>
+                                                        	<input value="実施" name="1_Q4" type="radio" id="1_Q4_01" onchange="checkRequiredQ1();" /><label for="1_Q4_01">実施</label>
+                                                        </li>
+                                                        <li>
+                                                        	<input value="未実施" name="1_Q4" type="radio" id="1_Q4_02" onchange="checkRequiredQ1();" /><label for="1_Q4_02">未実施</label>
+                                                        </li>
+                                                    </ul>  
+                                                 </li><!--.accordion_submenu_item end-->
+                                            </ul>
+                                        </li>
+                                    </ul><!--.accordion_menu end-->
+                                    
+                                    <ul class="accordion_menu margin_adjustment16">
+                                        <li class="accordion_menu_item fw_adjustment">
+                                            <a class="accordion_menu_item_link2 js-menu_item_link" href="">治験参加の有無査</a>
+                                            <ul class="accordion_submenu">
+                                                <li class="accordion_submenu_item">
+                                                	<ul class="checkbox_list_toggle">
+                                                    	<li>
+                                                        	<input value="実施" name="1_Q5" type="radio" id="1_Q5_01" onchange="checkRequiredQ1();" /><label for="1_Q5_01">実施</label>
+                                                        </li>
+                                                        <li>
+                                                        	<input value="未実施" name="1_Q5" type="radio" id="1_Q5_02" onchange="checkRequiredQ1();" /><label for="1_Q5_02">未実施</label>
+                                                        </li>
+                                                    </ul>  
+                                                 </li><!--.accordion_submenu_item end-->
+                                            </ul>
+                                        </li>
+                                    </ul><!--.accordion_menu end-->
+                                    
+                                    <ul class="accordion_menu margin_adjustment16">
+                                        <li class="accordion_menu_item fw_adjustment">
+                                            <a class="accordion_menu_item_link2 js-menu_item_link" href="">症状緩和療法</a>
+                                            <ul class="accordion_submenu">
+                                                <li class="accordion_submenu_item">
+                                                	<ul class="checkbox_list_toggle">
+                                                    	<li>
+                                                        	<input value="実施" name="1_Q6" type="radio" id="1_Q6_01" onchange="checkRequiredQ1();" /><label for="1_Q6_01">実施</label>
+                                                        </li>
+                                                        <li>
+                                                        	<input value="未実施" name="1_Q6" type="radio" id="1_Q6_02" onchange="checkRequiredQ1();" /><label for="1_Q6_02">未実施</label>
+                                                        </li>
+                                                        <li>
+                                                        	<input value="継続中" name="1_Q6" type="radio" id="1_Q6_03" onchange="checkRequiredQ1();" /><label for="1_Q6_03">継続中</label>
+                                                        </li>
+                                                        <li>
+                                                        	<input value="中止" name="1_Q6" type="radio" id="1_Q6_04" onchange="checkRequiredQ1();" /><label for="1_Q6_04">中止</label>
+                                                        </li>
+                                                    </ul>  
+                                                 </li><!--.accordion_submenu_item end-->
+                                            </ul>
+                                        </li>
+                                    </ul><!--.accordion_menu end-->   
+                                    
+                                 <ul class="accordion_menu margin_adjustment16">
+                                        <li class="accordion_menu_item fw_adjustment">
+                                            <a class="accordion_menu_item_link2 js-menu_item_link" href="">その他</a>
+                                            <ul class="accordion_submenu">
+                                                <li class="accordion_submenu_item">
+                                                	<ul class="checkbox_list5">
+                                                    	<li>
+                                                        	<dl class="from_check_list_text_field8">
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>詳細</dt>
+                                                                        <dd>
+                                                                        	<textarea name="other_note" id="other_note" class="height_adjustment" maxlength="500" placeholder="化学療法、放射線療法、手術、症状緩和治療
+投与の有無、利用の開始日/終了日などを記載してください"></textarea>
+                                                                        </dd>
+                                                                    </div> 
+                                                                </dl><!--from_check_list_text_field8 end-->    
+                                                         </li>
+                                                    </ul>  
+                                                 </li><!--.accordion_submenu_item end-->
+                                            </ul>
+                                        </li>
+                                    </ul><!--.accordion_menu end-->
+                                    
+                            </dd>
+                        </div>
+                    </dl><!--from_check_list_text_field7 end-->
+                </div><!--bg_blue end-->
+
+                <div class="bg_white">
+                	<h3>2）コンサルテーション介入後の転帰に関して教えてください。</h3>	
+                     <dl class="from_check_list_text_field7">
+                       <div class="form_item align_adjustment2">
+                            <dt>1) 改善状態について教えてください</dt>
+                            <dd>
+                            	<ul class="checkbox_list_toggle">
+                                                    	<li>
+                                                        	<input name="isSelect01_01" type="checkbox" id="isSelect01_01" onchange="checkSelectCKBox();"><label for="isSelect01_01">生存</label>
+                                                            <div class="toggle_content3">
+                                                                <dl class="from_check_list_text_field8">
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>最終生存確認日
+</dt>
+                                                                        <dd>
+                                                                             <input name="2_Q1" type="text" id="2_Q1_01" class="width_adjustment10 margin_adjustment12 margin_adjustment5" maxlength="10" placeholder="日付
+
+" oninput="sliceMaxLength(this, 30)" onblur="checkRequiredQ1();" /> 
+                                                                        </dd>
+                                                                    </div>
+                                                                  </dl>
+                                                            </div><!--.toggle_content end-->
+                                                        </li>
+                                                        <li>
+                                                        	<input name="isSelect01_02" type="checkbox" id="isSelect01_02" onchange="checkSelectCKBox();"><label for="isSelect01_02">死亡</label>
+                                                            <div class="toggle_content3">
+                                                                <dl class="from_check_list_text_field8">
+                                                                    <div class="form_item align_adjustment2">
+                                                                        <dt>死亡日付
+</dt>
+                                                                        <dd>
+                                                                             <input name="2_Q1_02" type="text" id="2_Q1_02" class="width_adjustment10 margin_adjustment12 margin_adjustment5" maxlength="10" placeholder="死亡日付" oninput="sliceMaxLength(this, 30)" onblur="checkRequiredQ1();" /> 
+                                                                        </dd>
+                                                                    </div>
+                                                                  </dl>
+                                                            </div><!--.toggle_content end-->
+                                                        </li>
+                                                    </ul><!--.checkbox_list_toggle end-->
+                                                	
+                            </dd>
+                        </div>
+                      </dl><!--from_check_list_text_field7 end-->
+                   
+                </div><!--bg_white end-->
+
+               <div class="bg_blue">
+                    <dl class="from_check_list_text_field7">
+                        <div class="form_item align_adjustment2">
+                            <dt>2）死因　<span class="title_description">※転帰死亡の場合のみ記入</span></dt>
+                            <dd>
+                                <!--<div class="error_text_area3" id="err2_Q2_01" style="display:block;">
+                                    <p class="error_text" id="p_err2_Q2_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>-->
+                                <ul class="checkbox_list">
+                                    <li class="width_adjustment4"><input value="完全に採用" name="2_Q2" type="radio" id="2_Q2_01" onchange="checkRequiredQ1();" /><label for="2_Q2_01">原病増悪による死亡</label></li>
+                                    <li class="width_adjustment4"><input value="部分的に採用" name="2_Q2" type="radio" id="2_Q2_02" onchange="checkRequiredQ1();" /><label for="2_Q2_02">治療関連死</label></li>
+                                    <li class="width_adjustment4"><input value="まったく採用しなかった" name="2_Q2" type="radio" id="2_Q2_03" onchange="checkRequiredQ1();" /><label for="2_Q2_03">その他</label><textarea name="cause_death" id="cause_death" class="row_1 height_adjustment margin_adjustment7" maxlength="300" placeholder="自由記載"></textarea></li>
+                                </ul>
+                            </dd>
+                        </div>
+                     </dl><!--from_check_list_text_field7 end-->
+                  
+                </div><!--bg_blue end-->
+
+               <div class="bg_white">
+                    <div class="form_submit">
+                        <div class="error_text_area3" style="display:none;">
+                            <p class="error_text"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>エラー表示</p>
+                        </div>
+                        <div class="caution_area">
+                            <p>症例の病歴、検査データ、相談内容を<span class="br">追加でJoinへ送信してください。</span></p>
+                            <p>くれぐれも個人情報は除いてください。</p>
+                        </div>
+                        <input type="submit" name="btnConfirm" value="確認" onclick="return checkConfirm();" id="btnConfirm" class="btn_style" />
+                        <button name="submit" id="submit" type="button" class="btn_style_line" onclick="confirmBack();">戻る</button>
+                    </div>
+                </div><!--bg_white end-->
+
+            </div><!--check_list_area end-->
+
+        </div><!--seconday_content end-->
+    </section>
+
+    </form>
+</main>
+
+<footer class="seconday_footer">
+  <small>&copy; 2020 Allm Inc. </small>
+</footer>
+</body>
+</html>
