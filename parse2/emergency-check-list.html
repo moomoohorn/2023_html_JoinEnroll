@@ -1,0 +1,811 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/Content/images/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" type="image/png" href="/Content/images/android-touch-icon.png" sizes="192x192" />
+<meta charset="utf-8" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="”Pragma”" content="”no-cache”" />
+<title>Enroll</title>
+  <link rel="stylesheet" href="Content/css/normalize.css?v=20230519045503">
+<link rel="stylesheet" href="Content/css/style.css?v=20230519045503">
+
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" /><script src="/Scripts/common.js?v=20201221122507"></script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/Scripts/common.js?v=20210608024511"></script>
+
+<script>
+
+    $(function () {
+        $('.js-menu_item_link').each(function () {
+            $(this).on('click', function () {
+                $(this).toggleClass('on');
+                $("+.accordion_submenu", this).slideToggle()
+                return false;
+            });
+        });
+    });
+
+    function sliceMaxLength(elem, maxLength) {
+        elem.value = elem.value.slice(0, maxLength);
+    }
+
+
+</script>
+<script>
+    function checkMaxValueFloat(elem, maxValue) {
+
+        if (elem.value != '') {
+            if (parseFloat(elem.value) > parseFloat(maxValue)) {
+                elem.value = maxValue;
+            }
+            else if (elem.value.substr(0, 1) == '-') {
+                elem.value = 0;
+            }
+        }
+    }
+    function checkMaxValueInt(elem, maxValue) {
+
+        if (elem.value != '') {
+            if (parseInt(elem.value) > parseInt(maxValue)) {
+                elem.value = maxValue;
+            }
+            else if (elem.value.substr(0, 1) == '-') {
+                elem.value = 0;
+            }
+        }
+    }
+</script>
+<script>
+    $(function () {
+        $('.js-modal-open').each(function () {
+            $(this).on('click', function () {
+                var target = $(this).data('target');
+                var modal = document.getElementById(target);
+                $(modal).fadeIn();
+                return false;
+            });
+        });
+        $('.js-modal-close').on('click', function () {
+            $('.js-modal').fadeOut();
+            return false;
+        });
+        $(document).ready(function () {
+            // 確認画面からブラウザバッグした時に入力チェックエラーを消す
+            if (window.performance.navigation.type == 2) {
+                checkRequiredQ1();
+            }
+        });
+    });
+</script>
+
+
+<script>
+
+    // ラジオボタンのチェック解除用
+    var number;
+    $(function(){
+        number = $('input:checked').val();
+        $('input').click(function(){
+            if($(this).val() == number) {
+                $(this).prop('checked', false);
+                number = 0;
+            } else {
+                number = $(this).val();
+            }
+        checkRequired();
+        });
+    });
+
+    let errorIcon = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i>';
+
+    function checkRequired() {
+        checkRequiredQ1();
+    }
+
+    function checkRequiredQ1() {
+
+        /*if ($("#Q1").val() != '') {
+            $("#p_errQ1_01").text('　');
+        } else {
+            $("#p_errQ1_01").html(errorIcon + '入力してください');
+        }*/
+
+        if ($("#Q2").val() != '') {
+            $("#p_errQ1_02").text('　');
+        } else {
+            $("#p_errQ1_02").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q3]:checked").val()) {
+            $("#p_errQ1_03").text('　');
+        } else {
+            $("#p_errQ1_03").html(errorIcon + '入力してください');
+        }
+
+        if ($("#left_ABI").val() != '') {
+            $("#p_errQ1_04").text('　');
+        } else {
+            $("#p_errQ1_04").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q5]:checked").val()) {
+            $("#p_errQ1_05").text('　');
+        } else {
+            $("#p_errQ1_05").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q6]:checked").val()) {
+            $("#p_errQ1_06").text('　');
+        } else {
+            $("#p_errQ1_06").html(errorIcon + '下記事項を確認し、チェックしてください');
+        }
+
+        if ($("input[type=radio][name=Q7]:checked").val()) {
+            $("#p_errQ1_07").text('　');
+        } else {
+            $("#p_errQ1_07").html(errorIcon + '入力してください');
+        }
+
+        /*if ($("input[type=radio][name=Q8]:checked").val()) {
+            $("#p_errQ1_08").text('　');
+        } else {
+            $("#p_errQ1_08").html(errorIcon + '入力してください');
+        }*/
+
+        /*if ($("input[type=radio][name=Q9]:checked").val()) {
+            $("#p_errQ1_09").text('　');
+        } else {
+            $("#p_errQ1_09").html(errorIcon + '入力してください');
+        }*/
+
+        if ($("input[type=radio][name=Q10]:checked").val()) {
+            $("#p_errQ1_10").text('　');
+        } else {
+            $("#p_errQ1_10").html(errorIcon + '入力してください');
+        }
+
+        /*if ($("input[type=radio][name=Q11]:checked").val()) {
+            $("#p_errQ1_11").text('　');
+        } else {
+            $("#p_errQ1_11").html(errorIcon + '入力してください');
+        }*/
+
+        /*if ($("input[type=radio][name=Q12]:checked").val()) {
+            $("#p_errQ1_12").text('　');
+        } else {
+            $("#p_errQ1_12").html(errorIcon + '入力してください');
+        }*/
+    }
+
+    function checkConfirm() {
+
+        checkRequired();
+
+        if ($("#p_errQ1_02").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_02").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_03").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_03").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_04").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_04").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_05").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_05").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_06").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_06").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_07").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_07").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_10").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_10").offset().top - 50 });
+            return false;
+        }
+
+        return true;
+    }
+
+</script>
+
+<style>
+td {
+    text-align: center;
+    vertical-align: top;
+    padding-bottom:5px;
+    vertical-align:middle;
+}
+</style>
+</head>
+<body class="body_bg2">
+<header id="head">
+    <h1><img src="/Content/images/logo.png" width="120" height="27" alt="ロゴ：Enroll" onclick="confirmBack();" style="cursor:pointer;" /></h1>
+    <nav class="header_cnav">
+        <ul>
+            <li class="notice"><a href="information.aspx">お知らせ</a>
+                <span class="notice_number">3</span>
+            </li>
+            <li class="logout">
+                <a href="index.aspx">
+                    
+                    ログアウト
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main id="bodymain">
+<form method="post" action="./case-registration-form-check-list" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="RbpXnWICENv84QbdTgDzqbVNxyftj75B3cMZRbneZM0Bh55MQVE3K/LmzlsjVjmxu2+/DdC7zZiFXRccZDvrstp+Hu1q0GFmP1ysPgjRQ0QS6BTNoNtR+catHUlOpbbzIhajPqajqA/6eeRwILgfnrVuKKtTgNMx3pGe0LQVHLkxuTGMjyvwD4oHCeGt+BNcaUwKIpkHETJ2r2mTDnt2WLKV7ruvJn25DDi3Q7nUxMq+1RmXwYJ+cMfIz2jGRH+gmebpJPZRYuicVstCq7ciyZ+xg4L5mweGBYvGJnRuuKM/SNWrNNjdc+3OLaQLU25LwWFC5mCXGMQx0lanTFX7jxaAtvR14rRyIeS7EQIUM6TWD8t+ljmCHxunHYrfB8ZMsFYRUycHxdUWRhB3YxGB6xKZIT5d15Dm+zn2qJRk7eWkUkhkCu3iwE0iz5a+8knkHeEq1v5ZkSoxEIYBVJG1Un0QoC1elroUIr+yi9VZ89Gpc5I8amrHsWJELOEIXv24z+stPOI+4S7kwfC8Y485+SNRHoz986hrkCFnNy0t1T40NdU5cJ8yvLSXdRXhIOO75ITESUhBihwBuy3oVDTqbcXZj5OY/GVydNY0BlQFakcQgyEIqTv4L0CbYEzQX4lZ1NxfM8s4Ke2ksnmmnlhRXG0iueuee2YuW3XLNQeMn78fedKi6b6dYtHeCL86rqvtN+o41DHLy7Ni+VwAK/UmhP80RXwz5Hn8zSoePiXnJxpeZe9QcEA+RVoKHb+1zloKgn/33gbD1yV3/Bn/ivy3mV3FSbAJgNk4fdK0OP81ae8hrMQe1Us0t0lIM0XkIfSNDWJQjxL1cT4lBCSNk9xD2Jrii4HN64MEww7hnEvUZFpAe4QUyTMSqc5o53kwggoDPjcLjjnyvXcxW7wuAD8sE6CwFy83JnKVMRzFMzpzv7In4zgvMZ5Ty6pecKctFm9jo842sIfxr6PdzikHQj5uBeb7Te5f6H3AZ/EVMTrmXwOkA36TDYaRI+sPR9M4th541grinwM60Fnptw1k+VOnNz5F9a+J3ExYmPEmbCxPtqE=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="173B3489" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/xsl1kdwHDZTUkgugv7IXVQhZS4UwEtNYxdNi4serVEpLH+CuOLpqvtgZuubfgavG0yMQzuhnqNZ8LPDF9O1F1xFo/wk8ID8y0M21x6ImUn9PNbG26yT8RG7LwdzeyT3gV6QpAErfwSZFE4GbVMw2+taSzlJRUGMRjlb6XJ69M2xyuad4n9Te1h9Zr1DKUZRzhhBrkIVzG+e8Fg0bHnMxXcgLIx80TIUHc7fjQh6iGhRkZDlVFRYPArrQLfk02msG/S6F8nF5zqg41yWyc3O2M6gzjNZIBN1pu4tZ2/MtqhJ/FrSRf8QbNHYhFOjCspCb+1WesR5c0Cj5qechHv1LQrHT5W3XriFCNaKQyfNIoRo/bum9LnELwd0ScH4cNHyUp06mFNOcN6g9AQE/bb4K76Dqn5h8jRxUs5QEKu+oAikrY/FTWkO+NE0Y9QS+H4XBDancIELjxIrVUgwRY6PtH+90ZvT1FGvzSLAi5Y2LLZk0OHPr8k+lXM5Ddv9q8pem46BfvaaPwXHOS7etHYQ1ldGqdWCVfaRG92uz33LJmA36FWY4yVWG00EHx9Y5I1r47SaSVFWFR5vEklQnVd3yEGosU/afALmqOtD1+k5NXzj5GxCIFTacZFovYWylUBxQU5CU4Fpv2n/GiYermbOpdSclxsOX49lC0QrwIVFB1KbgeGMcTlsCM3dawuFdnK1AnHpRD2k1bcjKICiiT1en6xdsrKSx0w4sJdCkVE0nHNS+QFfogaMRzGrKcysBjOMdWN7PqFHUVM7iekaSf40C3BCwSOA6lDINOC/tNlXBRlAFQgJKXEXSbazmVF8nly28JBZSkczjVVW41efVyj1pCUhkyKqntwNcviRPQEyrOkKH5n6Q1Ep8oEE5MGwNg7fy2bcHyxsWsFlHbxQVykOIHInDAsZ1LnC/SxtW/LkmvisX2VqmCLhNWdmcnywTpaARF1sNRqiXVfVK5ssIhWfFM2/kWLav95o/tMukFUMN/dgEVA1jK0kLG4JeyunLbhXtwBu/jJsA9sn9jjQ14/yb+PRW4vzo5AwjZDnqtpdheOfjnkPVmIrIBP/kOvGxBX94guqnqKao+zzYcU3w4CrVqQrD1NCZ8UfLUq+D1NAx8jTFCfVspizbqXzN4YAzE9q8AesDaWzVLUOhxyo6z57U75tzqv7TuJWfn+G5J29RpSr/yDbcmedu229cacH2CYXxFisYmlX7BT0rMZksC+8mRBGxyCP5j7QTvSMm60u+nPpfoz46Yw/y19s8SpzWdbNV2dtF89D4XiJ5/Tn48mmRANZfCM7jFYsldget+vD5vJ/jKceKip1Hp3upbjhhppcKuxTDfkUqexmJeCSDFWDoHVj1ybtXdzOOeVYQpguUeRVo2Bx9GELnS3/DovbI6cpC394PB87XDgnIx0l8tsSTIVatoa1HyNyckQ77Wvk6IoriaSYxepFsYgdp3Vx9YOwH5IQkUVDbwN9WvdpT66GYUyYgA9MU3Yve+Zc29FLL6VnG262bKSovsp00IvuDF9LulI9Uhtwg8fTwtvHMQSS8I43CqR6AIhi43hQ/A4LooqKAXqE/fqC4r4tkLV3QI4N" />
+</div>
+    <input type="hidden" name="mode" id="mode" value="SP" />
+    <section>
+    <div class="seconday_content">
+
+        <div class="check_list_area">
+            <h2>救急観察カード</h2>
+                <div class="card_ID">No.000001</div>
+                <div class="bg_white">
+                    <p class="info_text"><span class="red">※</span>は必須項目です。</p>
+                    <h3>記載者情報<!--<p class="title_description">個人を特定する情報は含みません</p>--></h3>
+
+                    <dl class="from_check_list_text_field7">
+                        <div class="form_item align_adjustment2">
+                            <dt>日付<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="p_errQ1_01" style="display:block;"><p id="p_errQ1_01" class="error_text"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p></div>
+                                	<input name="txtAuthorDate" type="date" id="txtAuthorDate"/> 
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>救急隊名<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ1_02" style="display:block;">
+                                    <p class="error_text" id="p_errQ1_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="txtAuthorTeamName" type="text" id="txtAuthorTeamName" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>隊長名<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ1_03" style="display:block;">
+                                    <p class="error_text" id="p_errQ1_03"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                 <input name="txtAuthorCaptainName" type="text" id="txtAuthorCaptainName" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>記載者<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ1_04" style="display:block;">
+                                    <p class="error_text" id="p_errQ1_04"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                 <input name="txtAuthorName" type="text" id="txtAuthorName" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                        
+                    </dl><!--from_check_list_text_field7 end-->
+                </div><!--bg_white end-->
+
+                <div class="bg_blue">
+                	 <h3>患者情報</h3>
+                     
+                      <dl class="from_check_list_text_field7">
+                       <div class="form_item align_adjustment2">
+                            <dt>氏名<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="txtPatientName" type="text" id="txtPatientName" class="width_adjustment8" maxlength="100"/>	
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>フリガナ<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_02" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                	<input name="txtPatientFurigana" type="text" id="txtPatientFurigana" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>生年月日<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_03" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_03"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="datePatientBirthDate" type="date" id="datePatientBirthDate"/>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>年齢<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_04" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_04"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="NumPatientAge" type="number" id="NumPatientAge" value="12" class="width_adjustment">
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>性別<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_05" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_05"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input value="男性" name="checkPatientSex" type="radio" id="checkPatientSex_M" onchange="checkRequiredQ1();" /><label for="checkPatientSex_M">男性</label>
+                                <input value="女性" name="checkPatientSex" type="radio" id="checkPatientSex_W" onchange="checkRequiredQ1();" /><label for="checkPatientSex_W">女性</label> 
+                            </dd>
+                        </div>
+                         <div class="form_item align_adjustment2">
+                            <dt>電話番号<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_06" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_06"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="telPatientPhoneNum" type="tel" id="telPatientPhoneNum" class="width_adjustment8" maxlength="12" required /> 
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>住所<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_07" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_07"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <textarea name="telPatientAddress" id="telPatientAddress" class="row_1 height_adjustment2" maxlength="300" required></textarea> 
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>職業<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_08" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_08"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <textarea name="txtaPatientOccupation" id="txtaPatientOccupation" class="row_1 height_adjustment2" maxlength="300" required></textarea> 
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>既往歴<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_09" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_09"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <textarea name="txtaMedicalHistory" id="txtaMedicalHistory" class="row_1 height_adjustment2" maxlength="300" required></textarea> 
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>通院医療機関<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_10" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_10"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <textarea name="txtaOutpatientMedicalInstitution" id="txtaOutpatientMedicalInstitution" class="row_1 height_adjustment2" maxlength="300" required></textarea>
+                            </dd>
+                        </div>
+                    </dl><!--from_check_list_text_field7 end-->
+                   
+                </div><!--bg_blue end-->
+
+                <div class="bg_white">
+                	<h3>対応時刻と状況<!--<p class="title_description">測定したもののみご記載ください</p>--></h3>
+                    <dl class="from_check_list_text_field7">
+                        <div class="form_item align_adjustment2">
+                            <dt>タイムライン<span class="red">※</span></dt>
+                            <dd>
+                            <div class="error_text_area3" id="errQ3_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ3_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <table class="item_result">
+                                	<tr>
+                                    	<th>覚知</th>
+                                        <td><input name="timeAwareness" type="time" id="timeAwareness" class="border_adjustment2 width_adjustment4" required /></td>
+                                       </tr>
+                                     <tr>
+                                     	<th>現着</th>
+                                        <td><input name="timeArrival" type="time" id="timeArrival" class="border_adjustment2 width_adjustment4" required /></td>
+                                        </tr>
+                                     <tr>
+                                        <th>接触</th>
+                                        <td><input name="timeContact" type="time" id="timeContact" class="border_adjustment2 width_adjustment4" required /></td>
+                                        </tr>
+                                     <tr>
+                                        <th>収容</th>
+                                        <td><input name="timeHousing" type="time" id="timeHousing" class="border_adjustment2 width_adjustment4" required /></td>
+                                        </tr>
+                                     <tr>
+                                        <th>現発</th>
+                                        <td><input name="timeDevelopment" type="time" id="timeDevelopment" class="border_adjustment2 width_adjustment4" required /></td>
+                                        </tr>
+                                     <tr>
+                                        <th>病着</th>
+                                        <td><input name="timeArrivalHospital" type="time" id="timeArrivalHospita" class="border_adjustment2 width_adjustment4" required /></td>
+                                        </tr>
+                                     <tr>
+                                        <th>収容</th>
+                                        <td><input name="timeHousing02" type="time" id="timeHousing02" class="border_adjustment2 width_adjustment4" required /></td>
+                                        </tr>
+                                </table>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>発生状況・主訴<span class="red">※</span></dt>
+                            <dd>
+                            	<div class="error_text_area3" id="errQ3_02" style="display:block;">
+                                	<p class="error_text" id="p_errQ3_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                            	<p>G:原因 / U:主訴 / M:最終食事摂取時刻 / B:病気服用 / A:アレルギー</p>
+                            	<textarea name="textaSituation" id="textaSituation" class="row_1 height_adjustment" maxlength="300" required></textarea>  
+                            </dd>
+                        </div>
+                     </dl><!--from_check_list_text_field7 end-->
+                  
+                </div><!--bg_white end-->
+
+        		<div class="bg_blue">
+                	 <h3>検査内容<span class="red">※</span></h3>
+                     	<div class="error_text_area3" id="errQ4_01" style="display:block;">
+                        	<p class="error_text" id="p_errQ4_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                            </div>
+                      <div class="table_scroll">      
+                     	<table>
+                        	<tr>
+                            	<th>時刻(接触時)</th>
+                                <th>意識(JCS)</th>
+                                <th>呼吸</th>
+                                <th>脈拍</th>
+                                <th>血圧(㎜Hg)</th>
+                                <th>SpO2</th>
+                                <th>酸素</th>
+                                <th>ECG</th>
+                                <th colspan="2">体温</th>
+                                <th class="width_adjustment11">備考</th>
+                            </tr>
+                            <tr>
+                            	<td><input name="inspectionDetails01" type="time" id="nspectionDetails01" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="inspectionDetails02" type="number" id="inspectionDetails02" class="width_adjustment border_adjustment2" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" /></td>
+                                <td><label><input name="inspectionDetails03" type="number" id="inspectionDetails03" class="width_adjustment border_adjustment2" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" />回/分</label></td>
+                                <td><label><input name="inspectionDetails04" type="number" id="QinspectionDetails04" class="width_adjustment border_adjustment2" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" />回/分</label></td>
+                                <td><input name="inspectionDetails05" type="number" id="inspectionDetails05" class="width_adjustment2 border_adjustment2" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" placeholder="収縮期"/> / <input name="inspectionDetails05_02" type="number" id="inspectionDetails05_02" class="width_adjustment2 border_adjustment2" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" placeholder="拡張期"/></td>
+                                <td><label><input name="inspectionDetails06" type="number" id="nspectionDetails06" class="width_adjustment border_adjustment2" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" />%</label></td>
+                                <td><label><input name="inspectionDetails07" type="number" id="inspectionDetails07" class="width_adjustment border_adjustment2" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" />ℓ/分</label></td>
+                                <td>
+                                	<div class="select_box_area4">
+                                        <select name="inspectionDetails08" id="inspectionDetails08" class="margin_adjustment14 border_adjustment2" onchange="checkRequiredQ1();">
+                                            <option value=""></option>
+                                            <option value="SR">SR</option>
+                                            <option value="Af">Af</option>
+                                            <option value="AF">AF</option>
+                                            <option value="PAC">PAC</option>
+                                            <option value="Paf">Paf</option>
+                                            <option value="PAVT">PAVT</option>
+                                            <option value="PVC">PVC</option>
+                                            <option value="VT">VT</option>
+                                            <option value="VF">VF</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td><input name="inspectionDetails09" type="text" id="inspectionDetails09" maxlength="4" class="width_adjustment border_adjustment2" required />℃</label></td>
+                                <td>
+                                	
+                                     <div class="select_box_area4">
+                                        <select name="inspectionDetails10" id="inspectionDetails10" class="margin_adjustment14 border_adjustment2" onchange="checkRequiredQ1();">
+                                            <option value=""></option>
+                                            <option value="腋窩">腋窩</option>
+                                            <option value="鼓膜">鼓膜</option>
+                                        </select>
+                                    </div>
+                                  
+                                </td>
+                                <td>
+                                	<textarea name="inspectionDetails11" id="inspectionDetails11" class="width_adjustment5 border_adjustment2" maxlength="200" required></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                        </div><!--.table_scroll end-->  
+                        <div class="btn_add_row">行を追加する</div>   
+                     </div><!--.bg_blue end-->
+                
+                <div class="bg_white">
+                	<h3>症状</h3>
+                     <dl class="from_check_list_text_field7">
+                     	<div class="form_item align_adjustment2">
+                            <dt>呼吸音<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ5_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ5_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                 <input value="正常" name="breathingSounds" type="radio" id="breathingSounds_N" onchange="checkRequiredQ1();" /><label for="breathingSounds_N">正常</label>
+                                <input value="喘鳴" name="breathingSounds" type="radio" id="breathingSounds_W" onchange="checkRequiredQ1();" /><label for="breathingSounds_W">喘鳴</label>
+                                <input value="喘鳴" name="breathingSounds" type="radio" id="breathingSounds_D" onchange="checkRequiredQ1();" /><label for="breathingSounds_D">左右差</label>
+                                <textarea name="textaBreathingSounds" id="textaBreathingSounds" class="height_adjustment2 margin_adjustment7" maxlength="300" placeholder="自由記載"></textarea>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>顔色<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ5_02" style="display:block;">
+                                    <p class="error_text" id="p_errQ5_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                 <input value="正常" name="complexion" type="radio" id="complexion_N" onchange="checkRequiredQ1();" /><label for="complexion_N">正常</label>
+                                <input value="蒼白" name="complexion" type="radio" id="complexion_P" onchange="checkRequiredQ1();" /><label for="complexion_P">蒼白</label>
+                                <input value="チアノーゼ" name="complexion" type="radio" id="complexion_C" onchange="checkRequiredQ1();" /><label for="complexion_C">チアノーゼ</label>
+                                <textarea name="textaComplexion" id="textaComplexion" class="height_adjustment2 margin_adjustment7" maxlength="300" placeholder="自由記載"></textarea>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>皮膚<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ5_03" style="display:block;">
+                                    <p class="error_text" id="p_errQ5_03"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                 <input value="正常" name="skin" type="radio" id="skin_N" onchange="checkRequiredQ1();" /><label for="skin_N">正常</label>
+                                <input value="冷汗" name="skin" type="radio" id="skin_C" onchange="checkRequiredQ1();" /><label for="skin_C">冷汗</label>
+                                <input value="湿潤" name="skin" type="radio" id="skin_W" onchange="checkRequiredQ1();" /><label for="skin_W">湿潤</label>
+                                <input value="発疹等" name="skin" type="radio" id="skin_R" onchange="checkRequiredQ1();" /><label for="skin_R">発疹等</label>
+                                <textarea name="textaSkin" id="textaSkin" class="height_adjustment2 margin_adjustment7" maxlength="300" placeholder="自由記載"></textarea>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>瞳孔<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ5_04" style="display:block;">
+                                    <p class="error_text" id="p_errQ5_04"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <div class="select_box_area4 width_adjustment3">
+                                        <select name="pupil" id="pupil" class="width_adjustment3 margin_adjustment14" onchange="checkRequiredQ1();">
+                                            <option value=""></option>
+                                            <option value="SR">正常</option>
+                                            <option value="Af">縮瞳</option>
+                                            <option value="AF">散瞳</option>
+                                            <option value="PAC">瞳孔不同</option>
+                                            <option value="Paf">共同偏視</option>
+                                        </select>
+                                    </div><!--.select_box_area4 end-->
+                                    <ul class="checkbox_list4 margin_adjustment7">
+                                    	<li>右：
+                                    	<label class="label_text"><input name="numberPupilRight" type="number" id="numberPupilRight" class="width_adjustment" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" />㎜</label>
+                                        </li>
+                                        <li><input value="＋" name="PupilRight" type="radio" id="PupilRight_＋" onchange="checkRequiredQ1();" /><label for="PupilRight_＋">＋</label></li>
+                                        <li><input value="−" name="PupilRight" type="radio" id="PupilRight_−" onchange="checkRequiredQ1();" /><label for="PupilRight_−">−</label></li>
+                                        <li><input value="弱" name="PupilRight" type="radio" id="PupilRight_W" onchange="checkRequiredQ1();" /><label for="PupilRight_W">弱</label></li>
+                                    </ul>
+                                    
+                                     <ul class="checkbox_list4 margin_adjustment7">
+                                    	<li>左：
+                                    	<label class="label_text"><input name="numberPupilLeft" type="number" id="numberPupilLeft" class="width_adjustment" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" />㎜</label>
+                                        </li>
+                                        <li><input value="＋" name="PupilLeft" type="radio" id="PupilLeft_＋" onchange="checkRequiredQ1();" /><label for="PupilLeft_＋">＋</label></li>
+                                        <li><input value="−" name="PupilLeft" type="radio" id="PupilLeft_−" onchange="checkRequiredQ1();" /><label for="PupilLeft_−">−</label></li>
+                                        <li><input value="弱" name="PupilLeft" type="radio" id="PupilLeft_W" onchange="checkRequiredQ1();" /><label for="PupilLeft_W">弱</label></li>
+                                    </ul>
+                                    
+                                <textarea name="textaPupil" id="textaPupil" class="height_adjustment2 margin_adjustment7" maxlength="300" placeholder="自由記載"></textarea>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>麻痺<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ5_05" style="display:block;">
+                                    <p class="error_text" id="p_errQ5_05"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                    <ul class="checkbox_list">
+                                        <li><input value="なし" name="paralysis" type="radio" id="paralysis_N" onchange="checkRequiredQ1();" /><label for="paralysis_N">なし</label></li>
+                                        <li><input value="発語障害" name="paralysis" type="radio" id="paralysis_SD" onchange="checkRequiredQ1();" /><label for="paralysis_SD">発語障害</label></li>
+                                        <li><input value="右片麻痺" name="paralysis" type="radio" id="paralysis_RH" onchange="checkRequiredQ1();" /><label for="paralysis_RH">右片麻痺</label></li>
+                                        <li><input value="左片麻痺" name="paralysis" type="radio" id="paralysis_LH" onchange="checkRequiredQ1();" /><label for="paralysis_LH">左片麻痺</label></li>
+                                        <li><input value="下肢麻痺" name="paralysis" type="radio" id="paralysis_IIP" onchange="checkRequiredQ1();" /><label for="paralysis_IIP">下肢麻痺</label></li>
+                                        <li><input value="四肢麻痺" name="paralysis" type="radio" id="paralysis_Q" onchange="checkRequiredQ1();" /><label for="paralysis_Q">四肢麻痺</label></li>
+                                    </ul>
+                                    
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>痙攣<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ5_06" style="display:block;">
+                                    <p class="error_text" id="p_errQ5_06"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                    <ul class="checkbox_list">
+                                        <li><input value="なし" name="convulsions" type="radio" id="convulsions_N" onchange="checkRequiredQ1();" /><label for="convulsions_N">なし</label></li>
+                                        <li><input value="全身性" name="convulsions" type="radio" id="convulsions_S" onchange="checkRequiredQ1();" /><label for="convulsions_S">全身性</label></li>
+                                        <li><input value="局所性" name="convulsions" type="radio" id="convulsions_L" onchange="checkRequiredQ1();" /><label for="convulsions_L">局所性</label></li>
+                                        <li><input value="強直性" name="convulsions" type="radio" id="convulsions_T" onchange="checkRequiredQ1();" /><label for="convulsions_T">強直性</label></li>
+                                        <li><input value="間代性" name="convulsions" type="radio" id="convulsions_C" onchange="checkRequiredQ1();" /><label for="convulsions_C">間代性</label></li>
+                                        <li><input name="txtConvulsions" type="text" id="txtConvulsions" class="width_adjustment4" maxlength="30" placeholder="持続時間" oninput="sliceMaxLength(this, 30)" onblur="checkRequiredQ1();" /></li>
+                                    </ul>
+                                    
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>表情<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ5_07" style="display:block;">
+                                    <p class="error_text" id="p_errQ5_07"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                 <input value="苦悶" name="facialExpression" type="radio" id="facialExpression_A" onchange="checkRequiredQ1();" /><label for="facialExpression_A">苦悶</label>
+                                <input value="興奮" name="facialExpression" type="radio" id="facialExpression_E" onchange="checkRequiredQ1();" /><label for="facialExpression_E">興奮</label>
+                                <textarea name="textaFacialExpression" id="textaFacialExpression" class="height_adjustment2 margin_adjustment7" maxlength="300" placeholder="自由記載"></textarea>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>状態<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ5_08" style="display:block;">
+                                    <p class="error_text" id="p_errQ5_08"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                 <input value="歩行不能" name="situation" type="radio" id="situation_UW" onchange="checkRequiredQ1();" /><label for="situation_UW">歩行不能</label>
+                                <input value="要介助" name="situation" type="radio" id="situation_NA" onchange="checkRequiredQ1();" /><label for="situation_NA">要介助</label>
+                            </dd>
+                        </div>
+                        </dl><!--.from_check_list_text_field7 end-->
+                </div><!--.bg_white end-->    
+
+                <div class="bg_blue">
+                	<h3>救命処置</h3>
+                    <div class="error_text_area3" id="errQ6_01" style="display:block;">
+                        	<p class="error_text" id="p_errQ6_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                            </div>
+                     <div class="table_scroll">      
+                     	<table>
+                        	<tr>
+                            	<th></th>
+                                <th class="width_adjustment3">1回目</th>
+                                <th class="width_adjustment3">2回目</th>
+                                <th class="width_adjustment3">3回目</th>
+                                <th class="width_adjustment11">特記事項</th>
+                            </tr>
+                            <tr>
+                                <th>除細動</th>
+                                <td><input name="defibrillation01" type="time" id="Awareness" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="defibrillation02" type="time" id="Awareness" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="defibrillation03" type="time" id="Awareness" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><textarea name="textaDefibrillation" id="textaDefibrillation" maxlength="300" placeholder="自由記載" class="border_adjustment2"></textarea></td> 
+                            </tr>
+                            <tr>
+                                <th>血糖測定</th>
+                                <td><input name="bloodSugarMeasurement01" type="time" id="bloodSugarMeasurement01" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="bloodSugarMeasurement02" type="time" id="bloodSugarMeasurement02" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="bloodSugarMeasurement03" type="time" id="bloodSugarMeasurement03" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><textarea name="txtaBloodSugarMeasurement" id="txtaBloodSugarMeasurement" maxlength="300" placeholder="自由記載" class="border_adjustment2"></textarea></td> 
+                            </tr>
+                            <tr>
+                                <th>静脈路確保</th>
+                                <td><input name="securingVenousLine01" type="time" id="securingVenousLine01" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="securingVenousLine02" type="time" id="securingVenousLine02" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="securingVenousLine03" type="time" id="securingVenousLine03" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><textarea name="txtaSecuringVenousLine" id="textaSecuringVenousLine" maxlength="300" placeholder="自由記載" class="border_adjustment2"></textarea></td> 
+                            </tr>
+                            <tr>
+                                <th>薬剤投与</th>
+                                <td><input name="drugAdministration01" type="time" id="drugAdministration01" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="drugAdministration02" type="time" id="drugAdministration02" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="drugAdministration03" type="time" id="drugAdministration03" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="txtDrugAdministration" type="text" id="txtDrugAdministration" class="width_adjustment4 border_adjustment2" maxlength="30" placeholder="薬剤名" oninput="sliceMaxLength(this, 30)" onblur="checkRequiredQ1();" /></td> 
+                            </tr>
+                            <tr>
+                                <th>気道確保</th>
+                                <td><input name="securingAirway01" type="text" id="securingAirway01" class="width_adjustment4 border_adjustment2" maxlength="30" placeholder="資器材名" oninput="sliceMaxLength(this, 30)" onblur="checkRequiredQ1();" /></td>
+                                <td><input name="securingAirway02" type="time" id="securingAirway02" maxlength="4" class="border_adjustment2 width_adjustment4" required /></td>
+                                <td><input name="securingAirway03" type="number" id="securingAirway03" class="width_adjustment4 border_adjustment2" oninput="sliceMaxLength(this, 3)" onblur="checkRequiredQ1();" /></td>
+                                <td><textarea name="txtaSecuringAirway" id="txtaSecuringAirway" maxlength="300" placeholder="自由記載" class="border_adjustment2"></textarea></td> 
+                            </tr>	
+                        </table>
+                        </div><!--.table_scroll end-->  
+                </div><!--bg_blue end-->
+
+                <div class="bg_white">
+                <h3>傷病者情報確認等</h3>
+                    <dl class="from_check_list_text_field7">
+                    	<div class="form_item align_adjustment2">
+                            <dt>本人確認<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ7_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ7_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <ul class="checkbox_list">
+                                    	<li><input name="identification" type="checkbox" id="identification_L" class="checkbox" onchange="checkSelectCKBox();" /><label for="identification_L">免許証</label></li>
+                                        <li><input name="identification" type="checkbox" id="identification_IC" class="checkbox" onchange="checkSelectCKBox();" /><label for="identification_IC">保険証等</label></li>
+                                        <li><input name="identification" type="checkbox" id="identification_FF" class="checkbox" onchange="checkSelectCKBox();" /><label for="identification_FF">家族から</label></li>
+                                        <li><input name="identification" type="checkbox" id="identification_S" class="checkbox" onchange="checkSelectCKBox();" /><label for="identification_S">くつ？</label></li>
+										<li>
+                                        <input name="identification" type="checkbox" id="identification_O" class="checkbox" onchange="checkSelectCKBox();" /><label for="identification_O">その他：</label>
+                                        </li>
+                                    </ul>
+                                <textarea name="txtaIdentification" id="txtaIdentification" class="height_adjustment2" maxlength="300" placeholder="自由記載"></textarea>     
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>家族への連絡<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ7_02" style="display:block;">
+                                    <p class="error_text" id="p_errQ7_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input value="済" name="contactFamily" type="radio" id="contactFamily_D" onchange="checkRequiredQ1();" /><label for="contactFamily_D">済</label>
+                                <input value="未" name="contactFamily" type="radio" id="contactFamily_NY" onchange="checkRequiredQ1();" /><label for="contactFamily_NY">未</label>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>同乗者・連絡先等<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ7_03" style="display:block;">
+                                    <p class="error_text" id="p_errQ7_03"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <textarea name="txtaContactInfo" id="txtaContactInfo" class="height_adjustment2" maxlength="300" placeholder="自由記載"></textarea>
+                            </dd>
+                        </div>
+                    </dl><!--from_check_list_text_field7 end-->
+                </div><!--bg_white end-->
+
+                <div class="bg_blue">
+                <h3>救急隊の考察</h3>
+                    <dl class="from_check_list_text_field7">
+                        <div class="form_item align_adjustment2">
+                            <dt>現在の状況<span class="red">※</span></dt>
+                            <dd>
+                            	<div class="error_text_area3" id="errQ8_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ8_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input value="緊急" name="thoughtEmergencyServices" type="radio" id="thoughtEmergencyServices_E" onchange="checkRequiredQ1();" /><label for="thoughtEmergencyServices_E">緊急</label>
+                                <input value="準緊急(その他)" name="thoughtEmergencyServices" type="radio" id="thoughtEmergencyServices_SU" onchange="checkRequiredQ1();" /><label for="thoughtEmergencyServices_SU">準緊急(その他)</label>
+                                <textarea name="txtaThoughtEmergencyServices" id="txtaThoughtEmergencyServices" class="height_adjustment margin_adjustment7" maxlength="300" placeholder="備考欄：自由記載"></textarea>
+                            </dd>
+                        </div>
+                    </dl><!--from_check_list_text_field7 end-->
+                </div><!--bg_blue end-->
+
+                <div class="bg_white">
+                    <div class="form_submit">
+                        <div class="error_text_area3" style="display:none;">
+                            <p class="error_text"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>エラー表示</p>
+                        </div>
+                        <!--<div class="caution_area">
+                            <p>症例の病歴、検査データ、相談内容を<span class="br">追加でJoinへ送信してください。</span></p>
+                            <p>くれぐれも個人情報は除いてください。</p>
+                        </div>-->
+                        <input type="submit" name="btnConfirm" value="確認" onclick="return checkConfirm();" id="btnConfirm" class="btn_style" />
+                        <button name="submit" id="submit" type="button" class="btn_style_line" onclick="confirmBack();">戻る</button>
+                    </div>
+                </div><!--bg_white end-->
+
+            </div><!--check_list_area end-->
+
+        </div><!--seconday_content end-->
+    </section>
+
+    </form>
+</main>
+
+<footer class="seconday_footer">
+  <small>&copy; 2020 Allm Inc. </small>
+</footer>
+</body>
+</html>

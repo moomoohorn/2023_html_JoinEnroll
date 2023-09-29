@@ -1,0 +1,530 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/Content/images/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" type="image/png" href="/Content/images/android-touch-icon.png" sizes="192x192" />
+<meta charset="utf-8" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="”Pragma”" content="”no-cache”" />
+<title>Enroll</title>
+  <link rel="stylesheet" href="Content/css/normalize.css?v=20230519045503">
+<link rel="stylesheet" href="Content/css/style.css?v=20230519045503">
+
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" /><script src="/Scripts/common.js?v=20201221122507"></script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/Scripts/common.js?v=20210608024511"></script>
+
+<script>
+
+    $(function () {
+        $('.js-menu_item_link').each(function () {
+            $(this).on('click', function () {
+                $(this).toggleClass('on');
+                $("+.accordion_submenu", this).slideToggle()
+                return false;
+            });
+        });
+    });
+
+    function sliceMaxLength(elem, maxLength) {
+        elem.value = elem.value.slice(0, maxLength);
+    }
+
+
+</script>
+<script>
+    function checkMaxValueFloat(elem, maxValue) {
+
+        if (elem.value != '') {
+            if (parseFloat(elem.value) > parseFloat(maxValue)) {
+                elem.value = maxValue;
+            }
+            else if (elem.value.substr(0, 1) == '-') {
+                elem.value = 0;
+            }
+        }
+    }
+    function checkMaxValueInt(elem, maxValue) {
+
+        if (elem.value != '') {
+            if (parseInt(elem.value) > parseInt(maxValue)) {
+                elem.value = maxValue;
+            }
+            else if (elem.value.substr(0, 1) == '-') {
+                elem.value = 0;
+            }
+        }
+    }
+</script>
+<script>
+    $(function () {
+        $('.js-modal-open').each(function () {
+            $(this).on('click', function () {
+                var target = $(this).data('target');
+                var modal = document.getElementById(target);
+                $(modal).fadeIn();
+                return false;
+            });
+        });
+        $('.js-modal-close').on('click', function () {
+            $('.js-modal').fadeOut();
+            return false;
+        });
+        $(document).ready(function () {
+            // 確認画面からブラウザバッグした時に入力チェックエラーを消す
+            if (window.performance.navigation.type == 2) {
+                checkRequiredQ1();
+            }
+        });
+    });
+</script>
+
+
+<script>
+
+    // ラジオボタンのチェック解除用
+    var number;
+    $(function(){
+        number = $('input:checked').val();
+        $('input').click(function(){
+            if($(this).val() == number) {
+                $(this).prop('checked', false);
+                number = 0;
+            } else {
+                number = $(this).val();
+            }
+        checkRequired();
+        });
+    });
+
+    let errorIcon = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i>';
+
+    function checkRequired() {
+        checkRequiredQ1();
+    }
+
+    function checkRequiredQ1() {
+
+        /*if ($("#Q1").val() != '') {
+            $("#p_errQ1_01").text('　');
+        } else {
+            $("#p_errQ1_01").html(errorIcon + '入力してください');
+        }*/
+
+        if ($("#Q2").val() != '') {
+            $("#p_errQ1_02").text('　');
+        } else {
+            $("#p_errQ1_02").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q3]:checked").val()) {
+            $("#p_errQ1_03").text('　');
+        } else {
+            $("#p_errQ1_03").html(errorIcon + '入力してください');
+        }
+
+        if ($("#left_ABI").val() != '') {
+            $("#p_errQ1_04").text('　');
+        } else {
+            $("#p_errQ1_04").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q5]:checked").val()) {
+            $("#p_errQ1_05").text('　');
+        } else {
+            $("#p_errQ1_05").html(errorIcon + '入力してください');
+        }
+
+        if ($("input[type=radio][name=Q6]:checked").val()) {
+            $("#p_errQ1_06").text('　');
+        } else {
+            $("#p_errQ1_06").html(errorIcon + '下記事項を確認し、チェックしてください');
+        }
+
+        if ($("input[type=radio][name=Q7]:checked").val()) {
+            $("#p_errQ1_07").text('　');
+        } else {
+            $("#p_errQ1_07").html(errorIcon + '入力してください');
+        }
+
+        /*if ($("input[type=radio][name=Q8]:checked").val()) {
+            $("#p_errQ1_08").text('　');
+        } else {
+            $("#p_errQ1_08").html(errorIcon + '入力してください');
+        }*/
+
+        /*if ($("input[type=radio][name=Q9]:checked").val()) {
+            $("#p_errQ1_09").text('　');
+        } else {
+            $("#p_errQ1_09").html(errorIcon + '入力してください');
+        }*/
+
+        if ($("input[type=radio][name=Q10]:checked").val()) {
+            $("#p_errQ1_10").text('　');
+        } else {
+            $("#p_errQ1_10").html(errorIcon + '入力してください');
+        }
+
+        /*if ($("input[type=radio][name=Q11]:checked").val()) {
+            $("#p_errQ1_11").text('　');
+        } else {
+            $("#p_errQ1_11").html(errorIcon + '入力してください');
+        }*/
+
+        /*if ($("input[type=radio][name=Q12]:checked").val()) {
+            $("#p_errQ1_12").text('　');
+        } else {
+            $("#p_errQ1_12").html(errorIcon + '入力してください');
+        }*/
+    }
+
+    function checkConfirm() {
+
+        checkRequired();
+
+        if ($("#p_errQ1_02").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_02").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_03").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_03").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_04").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_04").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_05").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_05").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_06").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_06").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_07").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_07").offset().top - 50 });
+            return false;
+        }
+
+        if ($("#p_errQ1_10").text().trim() != '') {
+            $("html,body").animate({ scrollTop: $("#errQ1_10").offset().top - 50 });
+            return false;
+        }
+
+        return true;
+    }
+
+</script>
+
+<style>
+td {
+    text-align: center;
+    vertical-align: top;
+    padding-bottom:5px;
+    vertical-align:middle;
+}
+</style>
+</head>
+<body class="body_bg2">
+<header id="head">
+    <h1><img src="/Content/images/logo.png" width="120" height="27" alt="ロゴ：Enroll" onclick="confirmBack();" style="cursor:pointer;" /></h1>
+    <nav class="header_cnav">
+        <ul>
+            <li class="notice"><a href="information.aspx">お知らせ</a>
+                <span class="notice_number">3</span>
+            </li>
+            <li class="logout">
+                <a href="index.aspx">
+                    
+                    ログアウト
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main id="bodymain">
+<form method="post" action="./case-registration-form-check-list" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="RbpXnWICENv84QbdTgDzqbVNxyftj75B3cMZRbneZM0Bh55MQVE3K/LmzlsjVjmxu2+/DdC7zZiFXRccZDvrstp+Hu1q0GFmP1ysPgjRQ0QS6BTNoNtR+catHUlOpbbzIhajPqajqA/6eeRwILgfnrVuKKtTgNMx3pGe0LQVHLkxuTGMjyvwD4oHCeGt+BNcaUwKIpkHETJ2r2mTDnt2WLKV7ruvJn25DDi3Q7nUxMq+1RmXwYJ+cMfIz2jGRH+gmebpJPZRYuicVstCq7ciyZ+xg4L5mweGBYvGJnRuuKM/SNWrNNjdc+3OLaQLU25LwWFC5mCXGMQx0lanTFX7jxaAtvR14rRyIeS7EQIUM6TWD8t+ljmCHxunHYrfB8ZMsFYRUycHxdUWRhB3YxGB6xKZIT5d15Dm+zn2qJRk7eWkUkhkCu3iwE0iz5a+8knkHeEq1v5ZkSoxEIYBVJG1Un0QoC1elroUIr+yi9VZ89Gpc5I8amrHsWJELOEIXv24z+stPOI+4S7kwfC8Y485+SNRHoz986hrkCFnNy0t1T40NdU5cJ8yvLSXdRXhIOO75ITESUhBihwBuy3oVDTqbcXZj5OY/GVydNY0BlQFakcQgyEIqTv4L0CbYEzQX4lZ1NxfM8s4Ke2ksnmmnlhRXG0iueuee2YuW3XLNQeMn78fedKi6b6dYtHeCL86rqvtN+o41DHLy7Ni+VwAK/UmhP80RXwz5Hn8zSoePiXnJxpeZe9QcEA+RVoKHb+1zloKgn/33gbD1yV3/Bn/ivy3mV3FSbAJgNk4fdK0OP81ae8hrMQe1Us0t0lIM0XkIfSNDWJQjxL1cT4lBCSNk9xD2Jrii4HN64MEww7hnEvUZFpAe4QUyTMSqc5o53kwggoDPjcLjjnyvXcxW7wuAD8sE6CwFy83JnKVMRzFMzpzv7In4zgvMZ5Ty6pecKctFm9jo842sIfxr6PdzikHQj5uBeb7Te5f6H3AZ/EVMTrmXwOkA36TDYaRI+sPR9M4th541grinwM60Fnptw1k+VOnNz5F9a+J3ExYmPEmbCxPtqE=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="173B3489" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/xsl1kdwHDZTUkgugv7IXVQhZS4UwEtNYxdNi4serVEpLH+CuOLpqvtgZuubfgavG0yMQzuhnqNZ8LPDF9O1F1xFo/wk8ID8y0M21x6ImUn9PNbG26yT8RG7LwdzeyT3gV6QpAErfwSZFE4GbVMw2+taSzlJRUGMRjlb6XJ69M2xyuad4n9Te1h9Zr1DKUZRzhhBrkIVzG+e8Fg0bHnMxXcgLIx80TIUHc7fjQh6iGhRkZDlVFRYPArrQLfk02msG/S6F8nF5zqg41yWyc3O2M6gzjNZIBN1pu4tZ2/MtqhJ/FrSRf8QbNHYhFOjCspCb+1WesR5c0Cj5qechHv1LQrHT5W3XriFCNaKQyfNIoRo/bum9LnELwd0ScH4cNHyUp06mFNOcN6g9AQE/bb4K76Dqn5h8jRxUs5QEKu+oAikrY/FTWkO+NE0Y9QS+H4XBDancIELjxIrVUgwRY6PtH+90ZvT1FGvzSLAi5Y2LLZk0OHPr8k+lXM5Ddv9q8pem46BfvaaPwXHOS7etHYQ1ldGqdWCVfaRG92uz33LJmA36FWY4yVWG00EHx9Y5I1r47SaSVFWFR5vEklQnVd3yEGosU/afALmqOtD1+k5NXzj5GxCIFTacZFovYWylUBxQU5CU4Fpv2n/GiYermbOpdSclxsOX49lC0QrwIVFB1KbgeGMcTlsCM3dawuFdnK1AnHpRD2k1bcjKICiiT1en6xdsrKSx0w4sJdCkVE0nHNS+QFfogaMRzGrKcysBjOMdWN7PqFHUVM7iekaSf40C3BCwSOA6lDINOC/tNlXBRlAFQgJKXEXSbazmVF8nly28JBZSkczjVVW41efVyj1pCUhkyKqntwNcviRPQEyrOkKH5n6Q1Ep8oEE5MGwNg7fy2bcHyxsWsFlHbxQVykOIHInDAsZ1LnC/SxtW/LkmvisX2VqmCLhNWdmcnywTpaARF1sNRqiXVfVK5ssIhWfFM2/kWLav95o/tMukFUMN/dgEVA1jK0kLG4JeyunLbhXtwBu/jJsA9sn9jjQ14/yb+PRW4vzo5AwjZDnqtpdheOfjnkPVmIrIBP/kOvGxBX94guqnqKao+zzYcU3w4CrVqQrD1NCZ8UfLUq+D1NAx8jTFCfVspizbqXzN4YAzE9q8AesDaWzVLUOhxyo6z57U75tzqv7TuJWfn+G5J29RpSr/yDbcmedu229cacH2CYXxFisYmlX7BT0rMZksC+8mRBGxyCP5j7QTvSMm60u+nPpfoz46Yw/y19s8SpzWdbNV2dtF89D4XiJ5/Tn48mmRANZfCM7jFYsldget+vD5vJ/jKceKip1Hp3upbjhhppcKuxTDfkUqexmJeCSDFWDoHVj1ybtXdzOOeVYQpguUeRVo2Bx9GELnS3/DovbI6cpC394PB87XDgnIx0l8tsSTIVatoa1HyNyckQ77Wvk6IoriaSYxepFsYgdp3Vx9YOwH5IQkUVDbwN9WvdpT66GYUyYgA9MU3Yve+Zc29FLL6VnG262bKSovsp00IvuDF9LulI9Uhtwg8fTwtvHMQSS8I43CqR6AIhi43hQ/A4LooqKAXqE/fqC4r4tkLV3QI4N" />
+</div>
+    <input type="hidden" name="mode" id="mode" value="SP" />
+    <section>
+    <div class="seconday_content">
+
+        <div class="check_list_area">
+            <h2>傷病者収容証</h2>
+            	<div class="nortification_message">
+                	<p class="n_m_address">○○市消防庁様</p>
+                    <p class="n_m_content">下記の通り傷病者を収容しました。</p>
+                </div>
+                <div class="card_ID">No.000001</div>
+                <div class="bg_white">
+                    <p class="info_text"><span class="red">※</span>は必須項目です。</p>
+                    <h3>病院情報<p class="title_description2">病院側がご記入ください</p></h3>
+
+                    <dl class="from_check_list_text_field7">
+                        <div class="form_item align_adjustment2">
+                            <dt>病院名<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ1_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ1_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="txtHospitalName" type="text" id="txtHospitalName" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>医師名<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ1_02" style="display:block;">
+                                    <p class="error_text" id="p_errQ1_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                 <input name="txtDoctorName" type="text" id="txtDoctorName" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                    </dl><!--from_check_list_text_field7 end-->
+                    
+                </div><!--bg_white end-->
+
+                <div class="bg_blue">
+                	 <h3>患者情報<p class="title_description2">救急隊側がご記入ください</p></h3>
+                     
+                      <dl class="from_check_list_text_field7">
+                       <div class="form_item align_adjustment2">
+                            <dt>氏名<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="txtPatientName" type="text" id="txtPatientName" class="width_adjustment8" maxlength="100"/>	
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>フリガナ<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_02" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                	<input name="txtPatientFurigana" type="text" id="txtPatientFurigana" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>生年月日<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_03" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_03"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="datePatientBirthDate" type="date" id="datePatientBirthDate"/>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>年齢<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_04" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_04"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="NumPatientAge" type="number" id="NumPatientAge" value="12" class="width_adjustment">
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>性別<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_05" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_05"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input value="男性" name="checkPatientSex" type="radio" id="checkPatientSex_M" onchange="checkRequiredQ1();" /><label for="checkPatientSex_M">男性</label>
+                                <input value="女性" name="checkPatientSex" type="radio" id="checkPatientSex_W" onchange="checkRequiredQ1();" /><label for="checkPatientSex_W">女性</label> 
+                            </dd>
+                        </div>
+                         <div class="form_item align_adjustment2">
+                            <dt>電話番号<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_05" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_05"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="telPatientPhoneNum" type="tel" id="telPatientPhoneNum" class="width_adjustment8" maxlength="12" required /> 
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>住所<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_06" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_06"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <textarea name="telPatientAddress" id="telPatientAddress" class="row_1 height_adjustment2" maxlength="300" required></textarea> 
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>職業<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ2_07" style="display:block;">
+                                    <p class="error_text" id="p_errQ2_07"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <textarea name="txtaPatientOccupation" id="txtaPatientOccupation" class="row_1 height_adjustment2" maxlength="300" required></textarea> 
+                            </dd>
+                        </div>
+                    </dl><!--from_check_list_text_field7 end-->
+                   
+                </div><!--bg_blue end-->
+
+                <div class="bg_white">
+                	<h3>事故詳細<p class="title_description2">病院側がご記入ください</p></h3>
+                	<dl class="from_check_list_text_field7">
+                        <div class="form_item align_adjustment2">
+                            <dt>事故種別<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ3_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ3_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <ul class="checkbox_list">
+                                    	<li><input name="accidentDetail" type="checkbox" id="accidentDetail_F" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_F">火災</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_NF" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_NF">自然災害</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_WD" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_WD">水難</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_TA" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_TA">交通事故</label></li>
+										<li><input name="accidentDetail" type="checkbox" id="accidentDetail_IA" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_IA">労働災害</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_A" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_A">運動競技</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_GI" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_GI">一般負傷</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_P" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_P">加害</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_SI01" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_SI01">自損行為</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_SI02" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_SI02">急病</label></li>
+                                    </ul>
+                                 <p class="margin_adjustment7">その他：</p>
+                                 <ul class="checkbox_list">
+                                    	<li><input name="accidentDetail" type="checkbox" id="accidentDetail_TH" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_TH">転院搬送</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_D" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_D">酒酔い</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_C" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_C">出産</label></li>
+                                        <li><input name="accidentDetail" type="checkbox" id="accidentDetail_O" class="checkbox" onchange="checkSelectCKBox();" /><label for="accidentDetail_O">その他</label></li>
+                                    </ul>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>収容時間<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ3_02" style="display:block;">
+                                    <p class="error_text" id="p_errQ3_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="txtAccommodationDate" type="date" id="txtAccommodationDate" class="margin_adjustment6"/>
+                                    <input name="txtAccommodationTime" type="time" id="txtAccommodationTime" />
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>診療科<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ3_03" style="display:block;">
+                                    <p class="error_text" id="p_errQ3_03"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="txtClinicalDepartment" type="text" id="txtClinicalDepartment" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                        <div class="form_item align_adjustment2">
+                            <dt>傷病名<span class="red">※</span></dt>
+                            <dd>
+                                <div class="error_text_area3" id="errQ3_04" style="display:block;">
+                                    <p class="error_text" id="p_errQ3_04"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <input name="txtInjuryName" type="text" id="txtInjuryName" class="width_adjustment8" maxlength="100"/>
+                            </dd>
+                        </div>
+                    </dl><!--from_check_list_text_field7 end-->
+                </div><!--bg_white end-->
+
+                <div class="bg_blue">
+                	<h3>感染症に関する判明事項<p class="title_description2">病院側がご記入ください</p></h3>
+                    <dl class="from_check_list_text_field7">
+                        <div class="form_item align_adjustment2">
+                            <dt>感染症に関する症状<span class="red">※</span></dt>
+                            <dd>
+                            <div class="error_text_area3" id="errQ4_01" style="display:block;">
+                                    <p class="error_text" id="p_errQ4_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                </div>
+                                <ul class="checkbox_list">
+                                    	<li><input name="infection" type="checkbox" id="infection_N" class="checkbox" onchange="checkSelectCKBox();" /><label for="infection_N">感染症なし</label></li>
+                                        <li><input name="infection" type="checkbox" id="infection_NI" class="checkbox" onchange="checkSelectCKBox();" /><label for="infection_NI">検査未実施</label></li>
+                                        <li><input name="infection" type="checkbox" id="infection_HA" class="checkbox" onchange="checkSelectCKBox();" /><label for="infection_HA">A型肝炎</label></li>
+                                        <li><input name="infection" type="checkbox" id="infection_HB" class="checkbox" onchange="checkSelectCKBox();" /><label for="infection_HB">B型肝炎</label></li>
+										<li><input name="infection" type="checkbox" id="infection_HC" class="checkbox" onchange="checkSelectCKBox();" /><label for="infection_HC">C型肝炎</label></li>
+                                        <li><input name="infection" type="checkbox" id="infection_T" class="checkbox" onchange="checkSelectCKBox();" /><label for="infection_T">結核</label></li>
+                                        <li class="width_adjustment4"><input name="identification" type="checkbox" id="identification_O" class="checkbox" onchange="checkSelectCKBox();" /><label for="identification_O">その他、感染症法に規定された感染症：</label></li>
+                                   </ul>
+                                   <textarea name="txtaInfectionFree" id="txtaInfectionFree" class="height_adjustment2" maxlength="300" placeholder="自由記載"></textarea>
+                                   <textarea name="txtaInfectionPointDisinfection" id="txtaInfectionPointDisinfection" class="height_adjustment margin_adjustment7" maxlength="300" placeholder="消毒等の注意点"></textarea>
+                            </dd>
+                        </div>
+                     </dl><!--from_check_list_text_field7 end-->
+                  
+                </div><!--bg_blue end-->
+                
+                <div class="bg_white">
+                	 <h3>担当詳細<span class="red">※</span><p class="title_description2">救急隊側がご記入ください</p></h3>
+                         <dl class="from_check_list_text_field7">
+                           <div class="form_item align_adjustment2">
+                                <dt>担当救急隊長名<span class="red">※</span></dt>
+                                <dd>
+                                    <div class="error_text_area3" id="errQ5_01" style="display:block;">
+                                        <p class="error_text" id="p_errQ5_01"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                    </div>
+                                    <input name="txtEmergencyCorpsName" type="text" id="txtEmergencyCorpsName" class="width_adjustment8" maxlength="100"/>	
+                                </dd>
+                            </div>
+                            <div class="form_item align_adjustment2">
+                                <dt>所属救急隊名<span class="red">※</span></dt>
+                                <dd>
+                                    <div class="error_text_area3" id="errQ5_02" style="display:block;">
+                                        <p class="error_text" id="p_errQ5_02"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>入力してください</p>
+                                    </div>
+                                    <ul class="checkbox_list6">
+                                    	<li><input name="emergencyDepartment" type="checkbox" id="emergencyDepartment01" class="checkbox" onchange="checkSelectCKBox();" /><label for="emergencyDepartment01">本署救急隊 <span class="sp">Tel.0982(22)7111 <span class="sp02">Fax.0982(22)7112</span></span></label></li>
+                                        <li><input name="emergencyDepartment" type="checkbox" id="emergencyDepartment02" class="checkbox" onchange="checkSelectCKBox();" /><label for="emergencyDepartment02">延岡北救急隊 <span class="sp">Tel.0982(35)1954 <span class="sp02">Fax.0982(35)3174</span></span></label></li>
+                                        <li><input name="emergencyDepartment" type="checkbox" id="emergencyDepartment03" class="checkbox" onchange="checkSelectCKBox();" /><label for="emergencyDepartment03">延岡南救急隊 <span class="sp">Tel.0982(37)0309 <span class="sp02">Fax.0982(37)0309</span></span></label></li>
+                                    </ul>	
+                                </dd>
+                            </div>
+                        </dl>    
+                        
+                     </div><!--.bg_white end-->
+                
+                <div class="bg_white">
+                    <div class="form_submit">
+                        <div class="error_text_area3" style="display:none;">
+                            <p class="error_text"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>エラー表示</p>
+                        </div>
+                        <!--<div class="caution_area">
+                            <p>症例の病歴、検査データ、相談内容を<span class="br">追加でJoinへ送信してください。</span></p>
+                            <p>くれぐれも個人情報は除いてください。</p>
+                        </div>-->
+                        <input type="submit" name="btnRegistration" value="登録" onclick="return checkRegistration();" id="btnRegistration" class="btn_style" />
+                        <button name="submit" id="submit" type="button" class="btn_style_line" onclick="confirmBack();">戻る</button>
+                    </div>
+                </div><!--bg_white end-->
+
+            </div><!--check_list_area end-->
+
+        </div><!--seconday_content end-->
+    </section>
+
+    </form>
+</main>
+
+<footer class="seconday_footer">
+  <small>&copy; 2020 Allm Inc. </small>
+</footer>
+</body>
+</html>

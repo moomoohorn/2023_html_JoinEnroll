@@ -1,0 +1,7 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.header { background: #6A6B6C; color: #fff; }
+.loginBox { max-width: 500px; }
+.contentBody { max-width: 900px;  }
+.showSelect { width: 80px!important;}

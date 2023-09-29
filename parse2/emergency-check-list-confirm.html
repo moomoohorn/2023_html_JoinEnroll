@@ -1,0 +1,638 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link rel="shortcut icon" href="/Content/images/favicon.ico" type="image/x-icon" /><link rel="apple-touch-icon" href="/Content/images/apple-touch-icon.png" sizes="180x180" />
+<link rel="icon" type="image/png" href="/Content/images/android-touch-icon.png" sizes="192x192" />
+<meta charset="utf-8" />
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /><meta http-equiv="”Pragma”" content="”no-cache”" />
+<title>Enroll</title>
+<link rel="stylesheet" href="Content/css/normalize.css?v=20230208124941">
+<link rel="stylesheet" href="Content/css/style.css?v=20230208124941">
+
+
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/Scripts/common.js?v=20230208124941">
+
+<script>
+    function showToastWatchman() {
+
+        location.href = document.getElementById('hdnJoinUrl').value;
+
+    }
+
+</script>
+
+<script>
+$(function(){
+    $('.js-modal-open').each(function(){
+        $(this).on('click',function(){
+            var target = $(this).data('target');
+            var modal = document.getElementById(target);
+            $(modal).fadeIn();
+            return false;
+        });
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    }); 
+});
+</script>  
+
+<style>
+td {
+    text-align: center;
+    vertical-align: top;
+    padding-bottom:5px;
+    vertical-align:middle;
+}
+</style>
+</head>
+<body class="body_bg2">
+<header id="head">
+	<h1><img src="Content/images/logo.png" width="120" height="27" alt="ロゴ：Enroll" onclick="confirmBack();" style="cursor:pointer;" /></h1>
+     <nav class="header_cnav">
+    	<ul>
+            <li class="notice"><a href="information.aspx">お知らせ</a>
+                
+            </li>
+            <li class="logout"><a href="index.aspx">
+                
+                ログアウト
+                               </a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+	<section>
+    <div class="seconday_content">
+<form method="post" action="./watchman-confirm" id="ctl00">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="yYemOH9LgJeMkyibJDXBMAKhojs5ypf0pyKnfS0q5CrS1Fl1CRYvc8Z86d4vbJG11hvjkT4vHS28TDBx4VobZO3FUh+8ZOI/IvrhtJgc0G5ESu97sEZPaLCuviGxE12+Etmkg6qGltv/HP5gAx+w02uapDdjW7otQ12QH8LvugmP6NWl0DPY0d1O9ffTiU1ky/8QaaVZXVOKTPPD25hf7y2hrfNP1wl1uGQVfwLEUPGJeLfgJnwhh8QewN/Yn/f06Y0sx9Ra6JnZGeBDuupMyP1Y7poa05KNUcJRaeXW4V9mL2/4IViu8KUB089Fj/pyhS6hJQi1vlBa9Q0FQAgvAL9oO2Qp4H0GkrllW1TjhCd3hZqrmWrlsh6YOaVwJhwlsFN42Mp2nftMWCA6eB+oCGS7eWSn6Yo3r3Di7ESYnF9+C4L2t0EbAMyotoztfWE/hmquBxqNU/n+IyaPntJR1Wc41aJg5PP3Z/irjyhipbaqyYxCNp12V+5D/kjQ/Q6JD1BzswAEVYEh2823wDM5B6ZE3NemY1XjTMC/Qwi9UdgEkhlb2xDFMSOQ+XSMfnOL3vatowXiDEYKe3ddlLzBvMpIBpuvRsNZwZ3EnXEi3pk941RlBGUUo4B/vztvVHhmjLmMvUZEDE7UWkhXEPYqbbyTnL+C7jwYdPKji6p1amp1ZuYTvbHCX7TOXFjybQ5/0rb8rshY9pcySV5UDXq8wfdkWjuocbKCbuynpJXrL/+RQOOukX+jUuFPvSwbJ6x4" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="ED08228A" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="d1yp8M0tMlC6rn6ns9zVwAOrUugCYKzkrRHuACwO3wR2GGsqaYL7ycuuIwRlUGicvrIlFNOA61iTM5d/epU2CtzSSfqcwmfMZI7YGHezZEktnGFRipM4wtNMG17LNTbFjT4RfbLKo7+39Nwtdao+dfODSyd0naxmxAO5W+nq9Oyg/TaSVDdbje2hfgn7z3l8" />
+</div>
+    
+    	<div class="check_list_area">
+            <h2>救急観察カード</h2>
+
+             <div class="bg_white">
+             	<h3>記載者情報</h3> 
+                	<dl class="from_check_list_text_field7">
+                    	<div class="form_item4">
+                        	<dt>日付<span class="red">※</span></dt>
+                            <dd><p id="Q1_01">2023年6月19日 月曜日</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_white end-->
+                     
+                     <div class="bg_white">
+                     <dl class="from_check_list_text_field7"> 
+                     	<div class="form_item4">
+                        	<dt>救急隊名<span class="red">※</span></dt>
+                            <dd><p id="Q1_02">アルム渋谷</p></dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_white end-->
+                     
+                     <div class="bg_white">
+                     <dl class="from_check_list_text_field7">
+                     	<div class="form_item4">
+                        	<dt>隊長名<span class="red">※</span></dt>
+                            <dd><p id="Q1_03">脇田 佳典</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_white end-->
+                     
+                     <div class="bg_white">
+                     <dl class="from_check_list_text_field7">
+                     	<div class="form_item4">
+                        	<dt>記載者<span class="red">※</span></dt>
+                            <dd><p id="Q1_04">白砂 太郎</p></dd>
+                            </div> 
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                      <div class="bg_blue">
+                      	<h3>患者情報</h3>
+                    	<dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>氏名<span class="red">※</span></dt>
+                                <dd><p id="Q2_01">川村 凌</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_blue end-->
+                       
+                       <div class="bg_blue"> 
+                        <dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>フリガナ<span class="red">※</span></dt>
+                                <dd><p id="Q2_02">カワムラ　リョウ</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_blue end-->
+                       
+                       <div class="bg_blue">
+                        <dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>生年月日<span class="red">※</span></dt>
+                                <dd><p id="Q2_03">1994年6月18日</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_blue end-->
+                        
+                       <div class="bg_blue"> 
+                        <dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>年齢<span class="red">※</span></dt>
+                                <dd><p id="Q2_04">29歳</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_blue end-->
+                        
+                       <div class="bg_blue"> 
+                        <dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>性別<span class="red">※</span></dt>
+                                <dd><p id="Q2_05">男性</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_blue end-->
+                        
+                       <div class="bg_blue"> 
+                        <dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>住所<span class="red">※</span></dt>
+                                <dd><p id="Q2_06">東京都杉並区～～～～</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_blue end-->
+                        
+                       <div class="bg_blue"> 
+                        <dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>職業<span class="red">※</span></dt>
+                                <dd><p id="Q2_07">会社員</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_blue end-->
+                        
+                       <div class="bg_blue"> 
+                        <dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>既往歴<span class="red">※</span></dt>
+                                <dd><p id="Q2_08">～～～～～</p></dd>
+                            </div> 
+                        </dl>
+                        </div><!--bg_blue end-->
+                        
+                       <div class="bg_blue"> 
+                        <dl class="from_check_list_text_field7">
+                        	<div class="form_item4">
+                                <dt>通院医療機関<span class="red">※</span></dt>
+                                <dd><p id="Q2_09">なし</p></dd>
+                            </div> 
+                        </dl>
+                     </div><!--bg_blue end-->
+            
+                	<div class="bg_white"> 
+						<h3>状況詳細</h3>
+                        <dl class="from_check_list_text_field7">
+                                <div class="form_item4">
+                                    <dt>覚知<span class="red">※</span></dt>
+                                    <dd>
+                                        <p id="Q3_01">00:00</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                 </div><!--bg_white end-->
+                 <div class="bg_white"> 
+                        <dl class="from_check_list_text_field7">
+                                <div class="form_item4">
+                                    <dt>現着<span class="red">※</span></dt>
+                                    <dd>
+                                        <p id="Q3_02">00:00</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                 </div><!--bg_white end-->
+                 <div class="bg_white"> 
+                        <dl class="from_check_list_text_field7">
+                                <div class="form_item4">
+                                    <dt>接触<span class="red">※</span></dt>
+                                    <dd>
+                                        <p id="Q3_03">00:00</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                 </div><!--bg_white end-->
+                 <div class="bg_white"> 
+                        <dl class="from_check_list_text_field7">
+                                <div class="form_item4">
+                                    <dt>収容<span class="red">※</span></dt>
+                                    <dd>
+                                        <p id="Q3_04">00:00</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                 </div><!--bg_white end-->
+                 <div class="bg_white"> 
+                        <dl class="from_check_list_text_field7">
+                                <div class="form_item4">
+                                    <dt>現発<span class="red">※</span></dt>
+                                    <dd>
+                                        <p id="Q3_05">00:00</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                 </div><!--bg_white end-->
+                 <div class="bg_white"> 
+                        <dl class="from_check_list_text_field7">
+                                <div class="form_item4">
+                                    <dt>病着<span class="red">※</span></dt>
+                                    <dd>
+                                        <p id="Q3_06">00:00</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                 </div><!--bg_white end-->
+                 <div class="bg_white"> 
+                        <dl class="from_check_list_text_field7">
+                                <div class="form_item4">
+                                    <dt>収容<span class="red">※</span></dt>
+                                    <dd>
+                                        <p id="Q3_07">00:00</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                 </div><!--bg_white end-->
+                 <div class="bg_white"> 
+                        <dl class="from_check_list_text_field7">
+                                <div class="form_item4">
+                                    <dt>発生状況・主訴<span class="red">※</span></dt>
+                                    <dd>
+                                        <p id="Q3_08">ここに発生状況・主訴の詳細が入ります。</p>
+                                    </dd>
+                                </div>
+                            </dl>
+                 </div><!--bg_white end-->
+                 
+                 <div class="bg_blue">
+                 	<h3>検査内容</h3>
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>時刻(接触時)<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_01">00:00</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>意識(JCS)<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_02">--</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                  <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>呼吸<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_03">--回/分</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>脈拍<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_04">--回/分</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>血圧(㎜Hg)<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_05">--/--</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>SpO2<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_06">--%</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>酸素<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_07">--ℓ/分</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>ECG<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_08">Af</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>体温<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q4_09_01">37.9℃</p>
+                                    <p id="Q4_09_02">鼓膜</p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->
+                 <div class="bg_blue">
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>備考<span class="red">※</span></dt>
+                                <dd>
+                                	<span id="Q4_10">備考の内容が入ります。</span>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end-->          
+                        
+                  <div class="bg_white">
+                 	<h3>症状</h3>
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>呼吸音<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q5_01_01">正常</p>
+                                    <p id="Q5_01_02">自由記載</p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_white end-->
+                         
+                  <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>顔色<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q5_02_01">正常</p>
+                                    <p id="Q5_02_02">自由記載</p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_white end-->
+                         
+                  <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>皮膚<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q5_03_01">正常</p>
+                                    <p id="Q5_03_02">自由記載</p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_white end--> 
+                         
+                 <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>瞳孔<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q5_04_01">正常</p>
+                                    <p id="Q5_04_02">右：5mm +</p>
+                                    <p id="Q5_04_03">左: 4mm +</p>
+                                    <p id="Q5_04_04">自由記載</p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_white end-->
+                         
+                  <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>麻痺<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q5_05_01">なし</p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_white end-->
+                         
+                 <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>痙攣<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q5_06_01">なし</p>
+                                    <p id="Q5_06_02">4～5時間</p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_white end-->
+                         
+                 <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>表情<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q5_07_01">苦悶</p>
+                                    <p id="Q5_07_02">自由記載</p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_white end-->
+                         
+                 <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                            
+                            <div class="form_item4">
+                                <dt>状態<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q5_08">歩行不能</p>
+                                </dd>
+                            </div>
+                         </dl>
+                         </div><!--bg_white end-->   
+                         
+                <div class="bg_blue">
+                	<h3>救命処置</h3> 
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4 line3">
+                                <dt>1回目<span class="red">※</span></dt>
+                                <dd>
+                                	<table class="a_list" id="Q6_01">
+                                    	<tr>
+                                        	<th>除細動:</th>
+                                            <td>00:00</td>
+                                        </tr>
+                                        <tr>
+                                        	<th>血糖測定:</th>
+                                            <td>00:00</td>
+                                        </tr>
+                                        <tr>
+                                        	<th>静脈路確保:</th>
+                                            <td>00:00</td>
+                                        </tr>
+                                        <tr>
+                                        	<th>薬剤投与:</th>
+                                            <td>00:00 </td>
+                                        </tr>
+                                        <tr>
+                                        	<th>気道確保:</th>
+                                            <td>00:00</td>
+                                        </tr>
+                                    </table>
+                                </dd>
+                            </div>
+                            <div class="form_item4">
+                                <dt>2回目<span class="red">※</span></dt>
+                                <dd>
+                                	<table class="a_list" id="Q6_02">
+                                    	<tr>
+                                        	<th>除細動:</th>
+                                            <td>00:00</td>
+                                        </tr>
+                                        <tr>
+                                        	<th>血糖測定:</th>
+                                            <td>00:00</td>
+                                        </tr>
+                                        <tr>
+                                        	<th>静脈路確保:</th>
+                                            <td>00:00</td>
+                                        </tr>
+                                        <tr>
+                                        	<th>薬剤投与:</th>
+                                            <td>00:00 </td>
+                                        </tr>
+                                        <tr>
+                                        	<th>気道確保:</th>
+                                            <td>00:00</td>
+                                        </tr>
+                                    </table>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end--> 
+                        
+                    <div class="bg_white">
+                    <h3>傷病者情報確認等</h3> 
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>本人確認<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q7_01_01">免許証 / 家族から</p>
+                                    <p id="Q7_01_02">自由記載</p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                    <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>家族への連絡<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q7_02">済</p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                   <div class="bg_white">
+                 	<dl class="from_check_list_text_field7">                             
+                            <div class="form_item4">
+                                <dt>同乗者・連絡先等<span class="red">※</span></dt>
+                                <dd>
+                                	<p id="Q7_03">自由記載</p>
+                                </dd>
+                            </div>   
+                        </dl>
+                     </div><!--bg_white end-->
+                     
+                    <div class="bg_blue">
+                    <h3>救急隊の考察</h3> 
+                 	<dl class="from_check_list_text_field7">
+                            <div class="form_item4">
+                                <dt>現在の状況<span class="red">※</span></dt>
+                                <dd>
+                                	<p><span id="Q8_01_01">緊急</span></p>
+                                    <p><span id="Q8_01_02">自由記載</span></p>
+                                </dd>
+                            </div>
+                        </dl>
+                        </div><!--bg_bule end--> 
+                        
+                   <div class="bg_white">
+                     	<div class="form_submit">
+                             <input type="submit" name="btnConfirm" value="Join に送信" onclick="return sendConfirm();" id="btnConfirm" class="btn_style js-modal-open" data-target="modal01"/>
+                             <input type="submit" name="btnReturn" value="戻る" onclick="history.back(); return false;" id="btnReturn" class="btn_style_line" />
+                             
+                        </div>
+                     </div><!--bg_white end-->
+                     
+        </div><!--check_list_area end-->
+    	
+        <input type="hidden" name="hdnJoinUrl" id="hdnJoinUrl" />
+        <input type="hidden" name="hdnJoinUrlDebug" id="hdnJoinUrlDebug" />
+        
+      </form>
+    </div><!--seconday_content end-->
+    </section>
+    
+    	<div id="modal01" class="modal js-modal">
+        <div class="modal_bg js-modal-close"></div>
+        <div class="modal_content">
+          <ul class="send_content">
+          	<li>症例の病歴、検査データ、相談内容を<span class="br">追加でJoinへ送信してください。</span><p>くれぐれも個人情報は除いてください。</p></li>
+            </ul><!--.send_content end-->
+            
+            <div class="m_btn_area">
+            <button name="send" id="send" type="button" class="btn_style3 js-modal-close" onclick="">Joinに送信する</button>
+            <button name="close" id="close" type="button" class="btn_style4 js-modal-close" onclick="">閉じる</button>
+            </div>
+            
+        </div><!--modal_content-->
+    </div><!--modal01-->
+    
+</main>
+
+<footer class="seconday_footer">
+  <small>&copy; 2020 Allm Inc. </small>
+</footer>
+
+</body>
+</html>
